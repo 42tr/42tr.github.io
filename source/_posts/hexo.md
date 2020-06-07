@@ -8,6 +8,7 @@ tags: [hexo, github]
 create a repository in github, name it `<user-name>.github.io`
 ### use nodejs
 - install nodejs
+- `npm install -g hexo`
 - `hexo init`
 ### change settings
 - modify `_config.yml`, change `deploy.repo` to your git repo
