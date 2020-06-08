@@ -1,7 +1,7 @@
 ---
 title: markdown
 date: 2020-06-08 14:04:26
-tags:
+tags: markdown
 ---
 ## INSERT PICTURE
 you can insert picture by encoding it to base64 so that you don't need to save the picture.
