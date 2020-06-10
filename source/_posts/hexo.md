@@ -27,4 +27,4 @@ set it as the default branch.
 #### push your code
 push `scaffolds`, `source`, `themes`, `_config.yml`, `package.json` to your new branch.
 
-
+![Suzumiya](http://img5.imgtn.bdimg.com/it/u=43100567,1780164666&fm=26&gp=0.jpg)
