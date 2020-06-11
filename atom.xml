@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://kisia.cn/"/>
-  <updated>2020-06-11T13:53:26.175Z</updated>
+  <updated>2020-06-11T15:24:44.094Z</updated>
   <id>http://kisia.cn/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>yml</title>
+    <link href="http://kisia.cn/2020/06/11/yml/"/>
+    <id>http://kisia.cn/2020/06/11/yml/</id>
+    <published>2020-06-11T15:23:11.000Z</published>
+    <updated>2020-06-11T15:24:44.094Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="array-declare"><a href="#array-declare" class="headerlink" title="array declare"></a>array declare</h3><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">knowledgeTitles:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">kdTitle:</span> <span class="string">听不清</span></span><br><span class="line">    <span class="attr">keyWords:</span> <span class="string">"[你说什么，没听清，听不清楚，再说一遍]"</span></span><br><span class="line">    <span class="attr">question:</span> <span class="string">"[没听懂，听不清楚]"</span></span><br><span class="line">  <span class="bullet">-</span> <span class="attr">kdTitle:</span> <span class="string">无应答</span></span><br><span class="line">    <span class="attr">kdInfos:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">你好</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">hello</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">hi</span></span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;array-declare&quot;&gt;&lt;a href=&quot;#array-declare&quot; class=&quot;headerlink&quot; title=&quot;array declare&quot;&gt;&lt;/a&gt;array declare&lt;/h3&gt;&lt;figure class=&quot;highlight yaml
+      
+    
+    </summary>
+    
+    
+    
+      <category term="yml" scheme="http://kisia.cn/tags/yml/"/>
+    
+  </entry>
   
   <entry>
     <title>jdk1.8</title>
@@ -100,9 +124,9 @@
     <link href="http://kisia.cn/2020/06/07/hexo/"/>
     <id>http://kisia.cn/2020/06/07/hexo/</id>
     <published>2020-06-07T02:14:24.000Z</published>
-    <updated>2020-06-11T13:53:30.063Z</updated>
+    <updated>2020-06-11T15:27:29.190Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="create-steps"><a href="#create-steps" class="headerlink" title="create steps"></a>create steps</h2><h3 id="create-repository"><a href="#create-repository" class="headerlink" title="create repository"></a>create repository</h3><p>create a repository in github, name it <code>&lt;user-name&gt;.github.io</code></p><h3 id="use-nodejs"><a href="#use-nodejs" class="headerlink" title="use nodejs"></a>use nodejs</h3><ul><li>install nodejs</li><li><code>npm install -g hexo</code></li><li><code>hexo init</code><h3 id="change-settings"><a href="#change-settings" class="headerlink" title="change settings"></a>change settings</h3></li><li>modify <code>_config.yml</code>, change <code>deploy.repo</code> to your git repo<h3 id="hexo-command"><a href="#hexo-command" class="headerlink" title="hexo command"></a>hexo command</h3></li><li><code>hexo s</code> <code>hexo server</code></li><li><code>hexo g</code> <code>hexo generate</code></li><li><code>hexo d</code> <code>hexo deploy</code></li><li><code>hexo new [scaffolds] [title]</code></li></ul><h2 id="upload-your-source"><a href="#upload-your-source" class="headerlink" title="upload your source"></a>upload your source</h2><p>github only save your html, you can use branch to save you source.</p><h3 id="steps"><a href="#steps" class="headerlink" title="steps"></a>steps</h3><h4 id="new-branch"><a href="#new-branch" class="headerlink" title="new branch"></a>new branch</h4><p>create a new branch, example: <code>hexo</code>.<br>set it as the default branch.</p><h4 id="push-your-code"><a href="#push-your-code" class="headerlink" title="push your code"></a>push your code</h4><p>push <code>scaffolds</code>, <code>source</code>, <code>themes</code>, <code>_config.yml</code>, <code>package.json</code> to your new branch.</p><h2 id="problems"><a href="#problems" class="headerlink" title="problems"></a>problems</h2><p>Hexo启动页面显示extends includes/layout.pug block content include includes/recent-posts.pug include</p>]]></content>
+    <content type="html"><![CDATA[<h2 id="create-steps"><a href="#create-steps" class="headerlink" title="create steps"></a>create steps</h2><h3 id="create-repository"><a href="#create-repository" class="headerlink" title="create repository"></a>create repository</h3><p>create a repository in github, name it <code>&lt;user-name&gt;.github.io</code></p><h3 id="use-nodejs"><a href="#use-nodejs" class="headerlink" title="use nodejs"></a>use nodejs</h3><ul><li>install nodejs</li><li><code>npm install -g hexo</code></li><li><code>hexo init</code><h3 id="change-settings"><a href="#change-settings" class="headerlink" title="change settings"></a>change settings</h3></li><li>modify <code>_config.yml</code>, change <code>deploy.repo</code> to your git repo<h3 id="hexo-command"><a href="#hexo-command" class="headerlink" title="hexo command"></a>hexo command</h3></li><li><code>hexo s</code> <code>hexo server</code></li><li><code>hexo g</code> <code>hexo generate</code></li><li><code>hexo d</code> <code>hexo deploy</code></li><li><code>hexo new [scaffolds] [title]</code></li></ul><h2 id="save-your-source"><a href="#save-your-source" class="headerlink" title="save your source"></a>save your source</h2><p>github only save your html, you can use branch to save you source.</p><h3 id="steps"><a href="#steps" class="headerlink" title="steps"></a>steps</h3><h4 id="new-branch"><a href="#new-branch" class="headerlink" title="new branch"></a>new branch</h4><p>create a new branch, example: <code>hexo</code>.<br>set it as the default branch.</p><h4 id="push-your-code"><a href="#push-your-code" class="headerlink" title="push your code"></a>push your code</h4><p>push <code>scaffolds</code>, <code>source</code>, <code>themes</code>, <code>_config.yml</code>, <code>package.json</code> to your new branch.</p><h2 id="change-theme"><a href="#change-theme" class="headerlink" title="change theme"></a>change theme</h2><h3 id="steps-1"><a href="#steps-1" class="headerlink" title="steps"></a>steps</h3><h4 id="find-theme"><a href="#find-theme" class="headerlink" title="find theme"></a>find theme</h4><p>find themes in <a href="https://hexo.io/themes/" target="_blank" rel="noopener">https://hexo.io/themes/</a></p><h4 id="download-theme-to-your-project"><a href="#download-theme-to-your-project" class="headerlink" title="download theme to your project"></a>download theme to your project</h4><p>download theme from github, example: <a href="https://github.com/miiiku/flex-block" target="_blank" rel="noopener">https://github.com/miiiku/flex-block</a><br>unzip to your folder or directly clone to your folder: /themes</p><h4 id="change-settings-1"><a href="#change-settings-1" class="headerlink" title="change settings"></a>change settings</h4><p>change <code>theme</code> to the name of new theme in <code>_config.yml</code></p><h4 id="command"><a href="#command" class="headerlink" title="command"></a>command</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo generate</span><br></pre></td></tr></table></figure><h2 id="api"><a href="#api" class="headerlink" title="api"></a>api</h2><h3 id="site-data-links"><a href="#site-data-links" class="headerlink" title="site.data.links"></a>site.data.links</h3><p>it means <code>/source/_data/links.yml</code></p><h2 id="problems"><a href="#problems" class="headerlink" title="problems"></a>problems</h2><p>Q: show <code>extends includes/layout.pug block content include includes/recent-posts.pug include</code><br>A: <code>npm install --save hexo-renderer-jade hexo-generator-feed hexo-generator-sitemap hexo-browsersync hexo-generator-archive</code></p><p>Q: <code>Try running:&#39;npm install hexo --save&#39;</code><br>A: <code>cnpm install</code></p><p>Q: show <code>Cannot GET /tags/</code><br>A: use command <code>hexo new page tags</code>, it will create <code>index.md</code> in <code>source/tags/</code>, change <code>type</code> to “tags”, then you’ll get it in chrome.</p>]]></content>
     
     <summary type="html">
     
@@ -126,7 +150,7 @@
     <link href="http://kisia.cn/2020/06/07/gradle/"/>
     <id>http://kisia.cn/2020/06/07/gradle/</id>
     <published>2020-06-07T00:44:59.000Z</published>
-    <updated>2020-06-11T13:54:54.034Z</updated>
+    <updated>2020-06-11T15:21:23.656Z</updated>
     
     <content type="html"><![CDATA[<!-- toc --><h2 id="Project-init"><a href="#Project-init" class="headerlink" title="Project init"></a>Project init</h2><ul><li>visit <code>https://start.spring.io/</code></li><li>choose <code>Gradle Project</code> in <code>Project</code></li><li>click <code>GENERATE</code> to download <code>zip</code></li></ul><h2 id="use-Jenkins"><a href="#use-Jenkins" class="headerlink" title="use Jenkins"></a>use <code>Jenkins</code></h2><h3 id="build-steps"><a href="#build-steps" class="headerlink" title="build steps"></a>build steps</h3><ul><li>download plugin <code>Gradle</code></li><li>start a <code>Freestyle project</code></li><li>choose <code>Invoke Gradle script</code> in <code>Build</code></li><li>choose <code>use Gradle Wrapper</code> to use project setting</li><li>set tasks <code>clean build</code></li></ul>]]></content>
     
