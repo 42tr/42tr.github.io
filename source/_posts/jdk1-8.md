@@ -2,6 +2,7 @@
 title: jdk1.8
 date: 2020-06-09 23:24:52
 tags: [jdk, lambda]
+cover: http://img2.imgtn.bdimg.com/it/u=1284459434,3525835816&fm=26&gp=0.jpg
 ---
 
 ### list to map
@@ -30,5 +31,3 @@ Map<String, List<AutoInstanceTemplatePosShow>> posShowAllMap = ListUtil.list2Map
 Map<String, List<String>> posShowMap = ListUtil.list2Map(autoMapper.queryPosShowByInstanceIds(instanceIdList),
         AutoInstanceTemplatePosShow::getInstanceId, posShow -> ListUtil.asList(posShow.getPosTemplateId()));
 ```
-
-![Suzumiya](http://img2.imgtn.bdimg.com/it/u=1284459434,3525835816&fm=26&gp=0.jpg)

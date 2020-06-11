@@ -2,6 +2,7 @@
 title: hexo
 date: 2020-06-07 10:14:24
 tags: [hexo, github]
+cover: http://img5.imgtn.bdimg.com/it/u=43100567,1780164666&fm=26&gp=0.jpg
 ---
 ## create steps
 ### create repository 
@@ -27,4 +28,5 @@ set it as the default branch.
 #### push your code
 push `scaffolds`, `source`, `themes`, `_config.yml`, `package.json` to your new branch.
 
-![Suzumiya](http://img5.imgtn.bdimg.com/it/u=43100567,1780164666&fm=26&gp=0.jpg)
+## problems
+Hexo启动页面显示extends includes/layout.pug block content include includes/recent-posts.pug include
