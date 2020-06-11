@@ -74,7 +74,7 @@
     <link href="http://kisia.cn/2020/06/08/markdown/"/>
     <id>http://kisia.cn/2020/06/08/markdown/</id>
     <published>2020-06-08T06:04:26.000Z</published>
-    <updated>2020-06-11T05:26:54.668Z</updated>
+    <updated>2020-06-11T05:52:23.218Z</updated>
     
     <content type="html"><![CDATA[<h2 id="INSERT-PICTURE"><a href="#INSERT-PICTURE" class="headerlink" title="INSERT PICTURE"></a>INSERT PICTURE</h2><p>you can insert picture by encoding it to base64 so that you don’t need to save the picture.<br>use it like this, <code>xxxx</code> is an example.<br><code>![image](data:image/jpeg;base64,xxxx)</code><br>display well ~</p>]]></content>
     
@@ -87,6 +87,8 @@
     
     </summary>
     
+    
+      <category term="note" scheme="http://kisia.cn/categories/note/"/>
     
     
       <category term="markdown" scheme="http://kisia.cn/tags/markdown/"/>
@@ -124,7 +126,7 @@
     <link href="http://kisia.cn/2020/06/07/gradle/"/>
     <id>http://kisia.cn/2020/06/07/gradle/</id>
     <published>2020-06-07T00:44:59.000Z</published>
-    <updated>2020-06-11T05:25:21.254Z</updated>
+    <updated>2020-06-11T06:23:01.057Z</updated>
     
     <content type="html"><![CDATA[<!-- toc --><h2 id="Project-init"><a href="#Project-init" class="headerlink" title="Project init"></a>Project init</h2><ul><li>visit <code>https://start.spring.io/</code></li><li>choose <code>Gradle Project</code> in <code>Project</code></li><li>click <code>GENERATE</code> to download <code>zip</code></li></ul><h2 id="use-Jenkins"><a href="#use-Jenkins" class="headerlink" title="use Jenkins"></a>use <code>Jenkins</code></h2><h3 id="build-steps"><a href="#build-steps" class="headerlink" title="build steps"></a>build steps</h3><ul><li>download plugin <code>Gradle</code></li><li>start a <code>Freestyle project</code></li><li>choose <code>Invoke Gradle script</code> in <code>Build</code></li><li>choose <code>use Gradle Wrapper</code> to use project setting</li><li>set tasks <code>clean build</code></li></ul>]]></content>
     
