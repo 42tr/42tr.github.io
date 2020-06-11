@@ -94,7 +94,7 @@
   
   
     <div class="header-content">
-      <div class="post-image" style="background-image: url(https://qiniu.miiiku.xyz/src/images/banner.jpg)"></div>
+      <div class="post-image" style="background-image: url(http://img2.imgtn.bdimg.com/it/u=1284459434,3525835816&amp;fm=26&amp;gp=0.jpg)"></div>
       <div class="post-text">
         <div class="type-wrap">
           
@@ -131,8 +131,6 @@
       <section class="article-entry">
         <h3 id="list-to-map"><a href="#list-to-map" class="headerlink" title="list to map"></a>list to map</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// before</span></span><br><span class="line">Map&lt;String, List&lt;AutoTemplateParamInstant&gt;&gt; instanceIdTemplateParamInstantsMap = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">ListUtil.nvlList(autoMapper.queryAutoTemplateParamInstantByIds(instanceIdList)).stream().forEach(autoTemplateParamInstant -&gt; &#123;</span><br><span class="line">    <span class="keyword">if</span> (instanceIdTemplateParamInstantsMap.containsKey(autoTemplateParamInstant.getInstanceId())) &#123;</span><br><span class="line">        instanceIdTemplateParamInstantsMap.get(autoTemplateParamInstant.getInstanceId()).add(autoTemplateParamInstant);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        instanceIdTemplateParamInstantsMap.put(autoTemplateParamInstant.getInstanceId(), ListUtil.asList(autoTemplateParamInstant));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// after</span></span><br><span class="line">Map&lt;String, List&lt;AutoTemplateParamInstant&gt;&gt; instanceIdTemplateParamInstantsMap = ListUtil.nvlList(autoMapper.queryAutoTemplateParamInstantByIds(instanceIdList))</span><br><span class="line">    .stream().collect(Collectors.toMap(AutoTemplateParamInstant::getInstanceId, autoTemplateParamInstant -&gt; ListUtil.asList(autoTemplateParamInstant),</span><br><span class="line">        ListUtil::mergeList));</span><br><span class="line"><span class="comment">// util</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> &lt;T, U&gt; Map&lt;String, List&lt;U&gt;&gt; list2Map(List&lt;T&gt; list, Function&lt;? <span class="keyword">super</span> T, String&gt; keyMapper,</span><br><span class="line">                                                Function&lt;? <span class="keyword">super</span> T, ? extends List&lt;U&gt;&gt; valueMapper) &#123;</span><br><span class="line">    <span class="keyword">return</span> nvlList(list).stream().collect(Collectors.toMap(keyMapper, valueMapper, ListUtil::mergeList));</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// use util</span></span><br><span class="line">Map&lt;String, List&lt;AutoInstanceTemplatePosShow&gt;&gt; posShowAllMap = ListUtil.list2Map(autoMapper.queryPosShowByTemplateIds(templateIdList),</span><br><span class="line">        AutoInstanceTemplatePosShow::getTemplateId, ListUtil::asList);</span><br><span class="line">Map&lt;String, List&lt;String&gt;&gt; posShowMap = ListUtil.list2Map(autoMapper.queryPosShowByInstanceIds(instanceIdList),</span><br><span class="line">        AutoInstanceTemplatePosShow::getInstanceId, posShow -&gt; ListUtil.asList(posShow.getPosTemplateId()));</span><br></pre></td></tr></table></figure>
 
-<p><img src="http://img2.imgtn.bdimg.com/it/u=1284459434,3525835816&fm=26&gp=0.jpg" alt="Suzumiya"></p>
-
       </section>
 
       <section class="article-footer">
@@ -145,8 +143,10 @@
   <div class="card-wrap">
     
     
-      <div id="article-nav-older" class="card-item">
+      <div id="article-nav-older" class="card-item img">
         <article>
+          
+            <div class="card-cover" style="background-image: url(http://img0.imgtn.bdimg.com/it/u=2006184492,1520035344&amp;fm=26&amp;gp=0.jpg)"></div>
           
           <a class="card-link article-nav-link" href="/2020/06/09/springboot-mybatis/"></a>
           <strong class="article-nav-caption">Older</strong>
