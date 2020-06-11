@@ -19,7 +19,7 @@ create a repository in github, name it `<user-name>.github.io`
 - `hexo d` `hexo deploy`
 - `hexo new [scaffolds] [title]`
 
-## upload your source
+## save your source
 github only save your html, you can use branch to save you source.
 ### steps
 #### new branch
@@ -28,5 +28,31 @@ set it as the default branch.
 #### push your code
 push `scaffolds`, `source`, `themes`, `_config.yml`, `package.json` to your new branch.
 
+## change theme
+### steps
+#### find theme
+find themes in https://hexo.io/themes/
+#### download theme to your project
+download theme from github, example: https://github.com/miiiku/flex-block
+unzip to your folder or directly clone to your folder: /themes
+#### change settings
+change `theme` to the name of new theme in `_config.yml`
+#### command
+```bash
+hexo clean
+hexo generate
+```
+
+## api
+### site.data.links
+it means `/source/_data/links.yml`
+
 ## problems
-Hexo启动页面显示extends includes/layout.pug block content include includes/recent-posts.pug include
+Q: show `extends includes/layout.pug block content include includes/recent-posts.pug include`
+A: `npm install --save hexo-renderer-jade hexo-generator-feed hexo-generator-sitemap hexo-browsersync hexo-generator-archive`
+
+Q: `Try running:'npm install hexo --save'`
+A: `cnpm install`
+
+Q: show `Cannot GET /tags/`
+A: use command `hexo new page tags`, it will create `index.md` in `source/tags/`, change `type` to "tags", then you'll get it in chrome.
