@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://kisia.cn/"/>
-  <updated>2020-06-11T15:24:44.094Z</updated>
+  <updated>2020-06-18T06:21:35.973Z</updated>
   <id>http://kisia.cn/</id>
   
   <author>
@@ -15,6 +15,57 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>tryWithResource</title>
+    <link href="http://kisia.cn/2020/06/18/tryWithResource/"/>
+    <id>http://kisia.cn/2020/06/18/tryWithResource/</id>
+    <published>2020-06-18T06:11:26.000Z</published>
+    <updated>2020-06-18T06:21:35.973Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="try-with-resource"><a href="#try-with-resource" class="headerlink" title="try-with-resource"></a>try-with-resource</h2><h3 id="background"><a href="#background" class="headerlink" title="background"></a>background</h3><p>we should close resource after we use it, but it’s repeat and ugly code.</p><p>we can use try-with-resouce after jdk7.</p><h3 id="traditional-way"><a href="#traditional-way" class="headerlink" title="traditional way"></a>traditional way</h3><p>use finally </p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    FileInputStream inputStream = <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        inputStream = <span class="keyword">new</span> FileInputStream(<span class="keyword">new</span> File(<span class="string">"test"</span>));</span><br><span class="line">        System.out.println(inputStream.read());</span><br><span class="line">    &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(e.getMessage(), e);</span><br><span class="line">    &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (inputStream != <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                inputStream.close();</span><br><span class="line">            &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(e.getMessage(), e);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h3 id="try-with-resouce"><a href="#try-with-resouce" class="headerlink" title="try-with-resouce"></a>try-with-resouce</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">try</span> (FileInputStream inputStream = <span class="keyword">new</span> FileInputStream(<span class="keyword">new</span> File(<span class="string">"test"</span>))) &#123;</span><br><span class="line">        System.out.println(inputStream.read());</span><br><span class="line">    &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(e.getMessage(), e);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>it works while objects declared in <code>()</code> implements <code>Closable</code> or <code>AutoClosable</code></p><h3 id="principle"><a href="#principle" class="headerlink" title="principle"></a>principle</h3><p>it’s not a new function but a <strong>Syntactic sugar</strong> (语法糖). In fact, it’s still same as before, we can find it in <code>class</code> file.</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;try-with-resource&quot;&gt;&lt;a href=&quot;#try-with-resource&quot; class=&quot;headerlink&quot; title=&quot;try-with-resource&quot;&gt;&lt;/a&gt;try-with-resource&lt;/h2&gt;&lt;h3 id=&quot;backg
+      
+    
+    </summary>
+    
+    
+    
+      <category term="java" scheme="http://kisia.cn/tags/java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>springboot-annotation</title>
+    <link href="http://kisia.cn/2020/06/14/springboot-annotation/"/>
+    <id>http://kisia.cn/2020/06/14/springboot-annotation/</id>
+    <published>2020-06-14T02:37:55.000Z</published>
+    <updated>2020-06-14T06:03:14.461Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="Value"><a href="#Value" class="headerlink" title="Value"></a>Value</h3><p>define value in application.yml</p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">image.type=png,jpg,gif</span></span><br></pre></td></tr></table></figure><p>use it as <code>String</code></p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Value</span>(<span class="string">"$&#123;image.type&#125;"</span>)</span><br><span class="line">String imageType;<span class="comment">// "png,jpg,gif"</span></span><br></pre></td></tr></table></figure><p>use it as <code>List&lt;String&gt;</code></p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Value</span>(<span class="string">"#&#123;'$&#123;image.type&#125;'.split(',')&#125;"</span>)</span><br><span class="line">List&lt;String&gt; imageTypes;<span class="comment">// "png", "jpg", "gif"</span></span><br></pre></td></tr></table></figure><p><strong>attention:</strong> use set method when binding to a static property</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> List&lt;String&gt; imageTypes;</span><br><span class="line"><span class="meta">@Value</span>(<span class="string">"#&#123;'$&#123;image.type&#125;'.split(',')&#125;"</span>)</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setImageTypes</span><span class="params">(List&lt;String&gt; list)</span> </span>&#123;</span><br><span class="line">    imageTypes = list;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;Value&quot;&gt;&lt;a href=&quot;#Value&quot; class=&quot;headerlink&quot; title=&quot;Value&quot;&gt;&lt;/a&gt;Value&lt;/h3&gt;&lt;p&gt;define value in application.yml&lt;/p&gt;
+&lt;figure class=&quot;highlig
+      
+    
+    </summary>
+    
+    
+    
+      <category term="springboot" scheme="http://kisia.cn/tags/springboot/"/>
+    
+      <category term="annotation" scheme="http://kisia.cn/tags/annotation/"/>
+    
+  </entry>
   
   <entry>
     <title>yml</title>
@@ -41,11 +92,11 @@
   </entry>
   
   <entry>
-    <title>jdk1.8</title>
-    <link href="http://kisia.cn/2020/06/09/jdk1-8/"/>
-    <id>http://kisia.cn/2020/06/09/jdk1-8/</id>
+    <title>stream</title>
+    <link href="http://kisia.cn/2020/06/09/stream/"/>
+    <id>http://kisia.cn/2020/06/09/stream/</id>
     <published>2020-06-09T15:24:52.000Z</published>
-    <updated>2020-06-11T13:53:26.175Z</updated>
+    <updated>2020-06-18T06:11:56.224Z</updated>
     
     <content type="html"><![CDATA[<h3 id="list-to-map"><a href="#list-to-map" class="headerlink" title="list to map"></a>list to map</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// before</span></span><br><span class="line">Map&lt;String, List&lt;AutoTemplateParamInstant&gt;&gt; instanceIdTemplateParamInstantsMap = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">ListUtil.nvlList(autoMapper.queryAutoTemplateParamInstantByIds(instanceIdList)).stream().forEach(autoTemplateParamInstant -&gt; &#123;</span><br><span class="line">    <span class="keyword">if</span> (instanceIdTemplateParamInstantsMap.containsKey(autoTemplateParamInstant.getInstanceId())) &#123;</span><br><span class="line">        instanceIdTemplateParamInstantsMap.get(autoTemplateParamInstant.getInstanceId()).add(autoTemplateParamInstant);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        instanceIdTemplateParamInstantsMap.put(autoTemplateParamInstant.getInstanceId(), ListUtil.asList(autoTemplateParamInstant));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">// after</span></span><br><span class="line">Map&lt;String, List&lt;AutoTemplateParamInstant&gt;&gt; instanceIdTemplateParamInstantsMap = ListUtil.nvlList(autoMapper.queryAutoTemplateParamInstantByIds(instanceIdList))</span><br><span class="line">    .stream().collect(Collectors.toMap(AutoTemplateParamInstant::getInstanceId, autoTemplateParamInstant -&gt; ListUtil.asList(autoTemplateParamInstant),</span><br><span class="line">        ListUtil::mergeList));</span><br><span class="line"><span class="comment">// util</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> &lt;T, U&gt; Map&lt;String, List&lt;U&gt;&gt; list2Map(List&lt;T&gt; list, Function&lt;? <span class="keyword">super</span> T, String&gt; keyMapper,</span><br><span class="line">                                                Function&lt;? <span class="keyword">super</span> T, ? extends List&lt;U&gt;&gt; valueMapper) &#123;</span><br><span class="line">    <span class="keyword">return</span> nvlList(list).stream().collect(Collectors.toMap(keyMapper, valueMapper, ListUtil::mergeList));</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// use util</span></span><br><span class="line">Map&lt;String, List&lt;AutoInstanceTemplatePosShow&gt;&gt; posShowAllMap = ListUtil.list2Map(autoMapper.queryPosShowByTemplateIds(templateIdList),</span><br><span class="line">        AutoInstanceTemplatePosShow::getTemplateId, ListUtil::asList);</span><br><span class="line">Map&lt;String, List&lt;String&gt;&gt; posShowMap = ListUtil.list2Map(autoMapper.queryPosShowByInstanceIds(instanceIdList),</span><br><span class="line">        AutoInstanceTemplatePosShow::getInstanceId, posShow -&gt; ListUtil.asList(posShow.getPosTemplateId()));</span><br></pre></td></tr></table></figure>]]></content>
     
@@ -60,9 +111,11 @@
     
     
     
-      <category term="jdk" scheme="http://kisia.cn/tags/jdk/"/>
-    
       <category term="lambda" scheme="http://kisia.cn/tags/lambda/"/>
+    
+      <category term="java" scheme="http://kisia.cn/tags/java/"/>
+    
+      <category term="resource" scheme="http://kisia.cn/tags/resource/"/>
     
   </entry>
   

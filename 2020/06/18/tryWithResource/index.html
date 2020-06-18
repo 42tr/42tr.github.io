@@ -20,7 +20,7 @@
 
   
 
-  <title>springboot-mybatis | Kisia</title>
+  <title>tryWithResource | Kisia</title>
 
   
 
@@ -94,18 +94,18 @@
   
   
     <div class="header-content">
-      <div class="post-image" style="background-image: url(http://img0.imgtn.bdimg.com/it/u=2006184492,1520035344&amp;fm=26&amp;gp=0.jpg)"></div>
+      <div class="post-image" style="background-image: url(https://dss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1432138035,2461939066&amp;fm=26&amp;gp=0.jpg)"></div>
       <div class="post-text">
         <div class="type-wrap">
           
         </div>
-        <h1 class="title-wrap">springboot-mybatis</h1>
+        <h1 class="title-wrap">tryWithResource</h1>
         <h2 class="title-sub-wrap">
           <strong>KsClouds</strong>
           <span>发布于</span>
           
   <a href="javascript:;" class="article-date">
-    <time datetime="2020-06-09T13:34:26.000Z" itemprop="datePublished">2020-06-09</time>
+    <time datetime="2020-06-18T06:11:26.000Z" itemprop="datePublished">2020-06-18</time>
   </a>
 
         </h2>
@@ -129,14 +129,20 @@
       
 
       <section class="article-entry">
-        <h3 id="annotations"><a href="#annotations" class="headerlink" title="annotations"></a>annotations</h3><ul>
-<li><code>@Mapper</code> add to mapper, use <code>@MapperScan(“com.a”, “com.b”)</code> in <code>Application.class</code> instead</li>
-</ul>
+        <h2 id="try-with-resource"><a href="#try-with-resource" class="headerlink" title="try-with-resource"></a>try-with-resource</h2><h3 id="background"><a href="#background" class="headerlink" title="background"></a>background</h3><p>we should close resource after we use it, but it’s repeat and ugly code.</p>
+<p>we can use try-with-resouce after jdk7.</p>
+<h3 id="traditional-way"><a href="#traditional-way" class="headerlink" title="traditional way"></a>traditional way</h3><p>use finally </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    FileInputStream inputStream = <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        inputStream = <span class="keyword">new</span> FileInputStream(<span class="keyword">new</span> File(<span class="string">"test"</span>));</span><br><span class="line">        System.out.println(inputStream.read());</span><br><span class="line">    &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(e.getMessage(), e);</span><br><span class="line">    &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (inputStream != <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                inputStream.close();</span><br><span class="line">            &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(e.getMessage(), e);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="try-with-resouce"><a href="#try-with-resouce" class="headerlink" title="try-with-resouce"></a>try-with-resouce</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">try</span> (FileInputStream inputStream = <span class="keyword">new</span> FileInputStream(<span class="keyword">new</span> File(<span class="string">"test"</span>))) &#123;</span><br><span class="line">        System.out.println(inputStream.read());</span><br><span class="line">    &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(e.getMessage(), e);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>it works while objects declared in <code>()</code> implements <code>Closable</code> or <code>AutoClosable</code></p>
+<h3 id="principle"><a href="#principle" class="headerlink" title="principle"></a>principle</h3><p>it’s not a new function but a <strong>Syntactic sugar</strong> (语法糖). In fact, it’s still same as before, we can find it in <code>class</code> file.</p>
 
       </section>
 
       <section class="article-footer">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mybatis/" rel="tag">#mybatis</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/springboot/" rel="tag">#springboot</a></li></ul>
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/" rel="tag">#java</a></li></ul>
       </section>
 
       <section class="article-navs">
@@ -144,32 +150,17 @@
 <nav class="card-container card-article-nav">
   <div class="card-wrap">
     
-      <div id="article-nav-newer" class="card-item img">
-        <article>
-          
-            <div class="card-cover" style="background-image: url(http://img2.imgtn.bdimg.com/it/u=1284459434,3525835816&amp;fm=26&amp;gp=0.jpg)"></div>
-          
-          <a class="card-link article-nav-link" href="/2020/06/09/stream/"></a>
-          <strong class="article-nav-caption">Newer</strong>
-          <p class="article-nav-title">
-            
-              stream
-            
-          </p>
-        </article>
-      </div>
-    
     
       <div id="article-nav-older" class="card-item img">
         <article>
           
-            <div class="card-cover" style="background-image: url(http://img4.imgtn.bdimg.com/it/u=3501662567,1930876815&amp;fm=26&amp;gp=0.jpg)"></div>
+            <div class="card-cover" style="background-image: url(http://img1.imgtn.bdimg.com/it/u=1432138035,2461939066&amp;fm=26&amp;gp=0.jpg)"></div>
           
-          <a class="card-link article-nav-link" href="/2020/06/08/markdown/"></a>
+          <a class="card-link article-nav-link" href="/2020/06/14/springboot-annotation/"></a>
           <strong class="article-nav-caption">Older</strong>
           <p class="article-nav-title">
             
-              markdown
+              springboot-annotation
             
           </p>
         </article>
