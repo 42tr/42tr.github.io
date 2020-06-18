@@ -11,8 +11,6 @@
   
 
   
-    <meta name="keywords" content="public">
-  
 
   
     <meta name="author" content="KsClouds">
@@ -30,6 +28,9 @@
     <link rel="icon" href="/favicon.ico">
   
 
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+    <link href="https://cdn.bootcss.com/highlight.js/9.15.6/styles/monokai.min.css" rel="stylesheet">
   
 
   
@@ -129,13 +130,13 @@
 
       <section class="article-entry">
         <h3 id="Value"><a href="#Value" class="headerlink" title="Value"></a>Value</h3><p>define value in application.yml</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">image.type=png,jpg,gif</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs yaml"><span class="hljs-string">image.type=png,jpg,gif</span><br></code></pre></td></tr></table></figure>
 <p>use it as <code>String</code></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Value</span>(<span class="string">"$&#123;image.type&#125;"</span>)</span><br><span class="line">String imageType;<span class="comment">// "png,jpg,gif"</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Value</span>(<span class="hljs-string">"$&#123;image.type&#125;"</span>)<br>String imageType;<span class="hljs-comment">// "png,jpg,gif"</span><br></code></pre></td></tr></table></figure>
 <p>use it as <code>List&lt;String&gt;</code></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Value</span>(<span class="string">"#&#123;'$&#123;image.type&#125;'.split(',')&#125;"</span>)</span><br><span class="line">List&lt;String&gt; imageTypes;<span class="comment">// "png", "jpg", "gif"</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Value</span>(<span class="hljs-string">"#&#123;'$&#123;image.type&#125;'.split(',')&#125;"</span>)<br>List&lt;String&gt; imageTypes;<span class="hljs-comment">// "png", "jpg", "gif"</span><br></code></pre></td></tr></table></figure>
 <p><strong>attention:</strong> use set method when binding to a static property</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> List&lt;String&gt; imageTypes;</span><br><span class="line"><span class="meta">@Value</span>(<span class="string">"#&#123;'$&#123;image.type&#125;'.split(',')&#125;"</span>)</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setImageTypes</span><span class="params">(List&lt;String&gt; list)</span> </span>&#123;</span><br><span class="line">    imageTypes = list;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">static</span> List&lt;String&gt; imageTypes;<br><span class="hljs-meta">@Value</span>(<span class="hljs-string">"#&#123;'$&#123;image.type&#125;'.split(',')&#125;"</span>)<br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">setImageTypes</span><span class="hljs-params">(List&lt;String&gt; list)</span> </span>&#123;<br>    imageTypes = list;<br>&#125;<br></code></pre></td></tr></table></figure>
 
       </section>
 

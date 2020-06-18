@@ -11,8 +11,6 @@
   
 
   
-    <meta name="keywords" content="public">
-  
 
   
     <meta name="author" content="KsClouds">
@@ -30,6 +28,9 @@
     <link rel="icon" href="/favicon.ico">
   
 
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+    <link href="https://cdn.bootcss.com/highlight.js/9.15.6/styles/monokai.min.css" rel="stylesheet">
   
 
   
@@ -145,7 +146,7 @@
 <h2 id="change-theme"><a href="#change-theme" class="headerlink" title="change theme"></a>change theme</h2><h3 id="steps-1"><a href="#steps-1" class="headerlink" title="steps"></a>steps</h3><h4 id="find-theme"><a href="#find-theme" class="headerlink" title="find theme"></a>find theme</h4><p>find themes in <a href="https://hexo.io/themes/" target="_blank" rel="noopener">https://hexo.io/themes/</a></p>
 <h4 id="download-theme-to-your-project"><a href="#download-theme-to-your-project" class="headerlink" title="download theme to your project"></a>download theme to your project</h4><p>download theme from github, example: <a href="https://github.com/miiiku/flex-block" target="_blank" rel="noopener">https://github.com/miiiku/flex-block</a><br>unzip to your folder or directly clone to your folder: /themes</p>
 <h4 id="change-settings-1"><a href="#change-settings-1" class="headerlink" title="change settings"></a>change settings</h4><p>change <code>theme</code> to the name of new theme in <code>_config.yml</code></p>
-<h4 id="command"><a href="#command" class="headerlink" title="command"></a>command</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo generate</span><br></pre></td></tr></table></figure>
+<h4 id="command"><a href="#command" class="headerlink" title="command"></a>command</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs bash">hexo clean<br>hexo generate<br></code></pre></td></tr></table></figure>
 
 <h2 id="api"><a href="#api" class="headerlink" title="api"></a>api</h2><h3 id="site-data-links"><a href="#site-data-links" class="headerlink" title="site.data.links"></a>site.data.links</h3><p>it means <code>/source/_data/links.yml</code></p>
 <h2 id="problems"><a href="#problems" class="headerlink" title="problems"></a>problems</h2><p>Q: show <code>extends includes/layout.pug block content include includes/recent-posts.pug include</code><br>A: <code>npm install --save hexo-renderer-jade hexo-generator-feed hexo-generator-sitemap hexo-browsersync hexo-generator-archive</code></p>

@@ -11,8 +11,6 @@
   
 
   
-    <meta name="keywords" content="public">
-  
 
   
     <meta name="author" content="KsClouds">
@@ -30,6 +28,9 @@
     <link rel="icon" href="/favicon.ico">
   
 
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+    <link href="https://cdn.bootcss.com/highlight.js/9.15.6/styles/monokai.min.css" rel="stylesheet">
   
 
   
@@ -131,32 +132,12 @@
         <h2 id="try-with-resource"><a href="#try-with-resource" class="headerlink" title="try-with-resource"></a>try-with-resource</h2><h3 id="background"><a href="#background" class="headerlink" title="background"></a>background</h3><p>we should close resource after we use it, but it’s repeat and ugly code.</p>
 <p>we can use try-with-resource after jdk7.</p>
 <h3 id="traditional-way"><a href="#traditional-way" class="headerlink" title="traditional way"></a>traditional way</h3><p>use finally</p>
-<pre><code>Awesome code snippet</code></pre>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>    FileInputStream inputStream = <span class="hljs-keyword">null</span>;<br>    <span class="hljs-keyword">try</span> &#123;<br>        inputStream = <span class="hljs-keyword">new</span> FileInputStream(<span class="hljs-keyword">new</span> File(<span class="hljs-string">"test"</span>));<br>        System.out.println(inputStream.read());<br>    &#125; <span class="hljs-keyword">catch</span> (IOException e) &#123;<br>        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> RuntimeException(e.getMessage(), e);<br>    &#125; <span class="hljs-keyword">finally</span> &#123;<br>        <span class="hljs-keyword">if</span> (inputStream != <span class="hljs-keyword">null</span>) &#123;<br>            <span class="hljs-keyword">try</span> &#123;<br>                inputStream.close();<br>            &#125; <span class="hljs-keyword">catch</span> (IOException e) &#123;<br>                <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> RuntimeException(e.getMessage(), e);<br>            &#125;<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
 
-<pre><code class="java">public static void main(String[] args) {
-    FileInputStream inputStream = null;
-    try {
-        inputStream = new FileInputStream(new File(&quot;test&quot;));
-        System.out.println(inputStream.read());
-    } catch (IOException e) {
-        throw new RuntimeException(e.getMessage(), e);
-    } finally {
-        if (inputStream != null) {
-            try {
-                inputStream.close();
-            } catch (IOException e) {
-                throw new RuntimeException(e.getMessage(), e);
-            }
-        }
-    }
-}</code></pre>
-<h3 id="try-with-resouce"><a href="#try-with-resouce" class="headerlink" title="try-with-resouce"></a>try-with-resouce</h3><pre><code class="java">public static void main(String[] args) {
-    try (FileInputStream inputStream = new FileInputStream(new File(&quot;test&quot;))) {
-        System.out.println(inputStream.read());
-    } catch (IOException e) {
-        throw new RuntimeException(e.getMessage(), e);
-    }
-}</code></pre>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>    FileInputStream inputStream = <span class="hljs-keyword">null</span>;<br>    <span class="hljs-keyword">try</span> &#123;<br>        inputStream = <span class="hljs-keyword">new</span> FileInputStream(<span class="hljs-keyword">new</span> File(<span class="hljs-string">"test"</span>));<br>        System.out.println(inputStream.read());<br>    &#125; <span class="hljs-keyword">catch</span> (IOException e) &#123;<br>        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> RuntimeException(e.getMessage(), e);<br>    &#125; <span class="hljs-keyword">finally</span> &#123;<br>        <span class="hljs-keyword">if</span> (inputStream != <span class="hljs-keyword">null</span>) &#123;<br>            <span class="hljs-keyword">try</span> &#123;<br>                inputStream.close();<br>            &#125; <span class="hljs-keyword">catch</span> (IOException e) &#123;<br>                <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> RuntimeException(e.getMessage(), e);<br>            &#125;<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="try-with-resouce"><a href="#try-with-resouce" class="headerlink" title="try-with-resouce"></a>try-with-resouce</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>    <span class="hljs-keyword">try</span> (FileInputStream inputStream = <span class="hljs-keyword">new</span> FileInputStream(<span class="hljs-keyword">new</span> File(<span class="hljs-string">"test"</span>))) &#123;<br>        System.out.println(inputStream.read());<br>    &#125; <span class="hljs-keyword">catch</span> (IOException e) &#123;<br>        <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> RuntimeException(e.getMessage(), e);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
 <p>it works while objects declared in <code>()</code> implements <code>Closable</code> or <code>AutoClosable</code></p>
 <h3 id="principle"><a href="#principle" class="headerlink" title="principle"></a>principle</h3><p>it’s not a new function but a <strong>Syntactic sugar</strong> (语法糖). In fact, it’s still same as before, we can find it in <code>class</code> file.</p>
 
