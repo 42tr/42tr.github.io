@@ -135,8 +135,9 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Value</span>(<span class="hljs-string">"$&#123;image.type&#125;"</span>)<br>String imageType;<span class="hljs-comment">// "png,jpg,gif"</span><br></code></pre></td></tr></table></figure>
 <p>use it as <code>List&lt;String&gt;</code></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Value</span>(<span class="hljs-string">"#&#123;'$&#123;image.type&#125;'.split(',')&#125;"</span>)<br>List&lt;String&gt; imageTypes;<span class="hljs-comment">// "png", "jpg", "gif"</span><br></code></pre></td></tr></table></figure>
-<p><strong>attention:</strong> use set method when binding to a static property</p>
+<p><strong>attention:</strong> use set method when binding to a static property, set method should not be <code>static</code><br>remember to give it to spring by using <code>@Component</code> or others</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">static</span> List&lt;String&gt; imageTypes;<br><span class="hljs-meta">@Value</span>(<span class="hljs-string">"#&#123;'$&#123;image.type&#125;'.split(',')&#125;"</span>)<br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">setImageTypes</span><span class="hljs-params">(List&lt;String&gt; list)</span> </span>&#123;<br>    imageTypes = list;<br>&#125;<br></code></pre></td></tr></table></figure>
+
 
       </section>
 

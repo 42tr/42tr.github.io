@@ -2,9 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://kisia.cn/2020/06/19/spring/</loc>
+    
+    <lastmod>2020-06-19T01:26:18.355Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://kisia.cn/2020/06/14/springboot-annotation/</loc>
+    
+    <lastmod>2020-06-19T01:15:23.858Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://kisia.cn/2020/06/18/tryWithResource/</loc>
     
-    <lastmod>2020-06-18T07:57:06.092Z</lastmod>
+    <lastmod>2020-06-18T08:10:18.615Z</lastmod>
     
   </url>
   
@@ -47,13 +61,6 @@
     <loc>http://kisia.cn/2020/06/07/gradle/</loc>
     
     <lastmod>2020-06-18T06:49:11.457Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://kisia.cn/2020/06/14/springboot-annotation/</loc>
-    
-    <lastmod>2020-06-18T06:47:18.361Z</lastmod>
     
   </url>
   
