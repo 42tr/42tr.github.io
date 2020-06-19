@@ -1,8 +1,8 @@
 ---
-title: jdk1.8
+title: stream
 date: 2020-06-09 23:24:52
-tags: [jdk, lambda]
-cover: http://img2.imgtn.bdimg.com/it/u=1284459434,3525835816&fm=26&gp=0.jpg
+tags: [java, lambda, resource]
+cover: http://p1.hoopchina.com.cn/personPic/78e9db62-9ac3-4710-9364-113972d42c5e.jpg
 ---
 
 ### list to map

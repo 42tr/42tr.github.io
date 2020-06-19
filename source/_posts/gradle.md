@@ -2,7 +2,7 @@
 title: gradle
 date: 2020-06-07 08:44:59
 tags: [gradle, jenkins]
-cover: http://img4.imgtn.bdimg.com/it/u=2939598968,2994712908&fm=26&gp=0.jpg
+cover: http://img.mp.itc.cn/upload/20170617/3f617255eb5947fb890c54bc69c9262b_th.jpg
 ---
 <!-- toc -->
 ## Project init

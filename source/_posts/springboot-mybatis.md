@@ -2,7 +2,7 @@
 title: springboot-mybatis
 date: 2020-06-09 21:34:26
 tags: [springboot, mybatis]
-cover: http://img0.imgtn.bdimg.com/it/u=2006184492,1520035344&fm=26&gp=0.jpg
+cover: http://t9.baidu.com/it/u=427372821,944655008&fm=193
 ---
 
 ### annotations

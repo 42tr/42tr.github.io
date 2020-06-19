@@ -2,7 +2,7 @@
 title: hexo
 date: 2020-06-07 10:14:24
 tags: [hexo, github]
-cover: http://img5.imgtn.bdimg.com/it/u=43100567,1780164666&fm=26&gp=0.jpg
+cover: http://gss0.baidu.com/9fo3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/d788d43f8794a4c2ef38ecd70ff41bd5ad6e3936.jpg
 ---
 ## create steps
 ### create repository 

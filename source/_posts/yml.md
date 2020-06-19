@@ -1,10 +1,10 @@
 ---
 title: yml
 date: 2020-06-11 23:23:11
-subtitle:
+subtitle: elegant setting file
 categories:
 tags: yml
-cover:
+cover: http://t8.baidu.com/it/u=3340126505,4137116089&fm=193
 ---
 ### array declare
 ```yaml
