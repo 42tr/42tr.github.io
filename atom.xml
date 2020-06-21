@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://kisia.cn/"/>
-  <updated>2020-06-21T05:33:49.733Z</updated>
+  <updated>2020-06-21T05:59:40.968Z</updated>
   <id>http://kisia.cn/</id>
   
   <author>
@@ -17,13 +17,39 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>linux</title>
+    <link href="http://kisia.cn/2020/06/21/linux/"/>
+    <id>http://kisia.cn/2020/06/21/linux/</id>
+    <published>2020-06-21T05:55:08.000Z</published>
+    <updated>2020-06-21T05:59:40.968Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="gt-amp-gt-gt"><a href="#gt-amp-gt-gt" class="headerlink" title="&gt; &amp; &gt;&gt;"></a><code>&gt;</code> &amp; <code>&gt;&gt;</code></h3><p><code>&gt;</code> is used to override file, if file not exist, it will auto create. actually it creates a file every time and then replace the origin file.<br><code>&gt;&gt;</code> is used to append th file.</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;gt-amp-gt-gt&quot;&gt;&lt;a href=&quot;#gt-amp-gt-gt&quot; class=&quot;headerlink&quot; title=&quot;&amp;gt; &amp;amp; &amp;gt;&amp;gt;&quot;&gt;&lt;/a&gt;&lt;code&gt;&amp;gt;&lt;/code&gt; &amp;amp; &lt;code&gt;&amp;gt;&amp;gt;&lt;/cod
+      
+    
+    </summary>
+    
+    
+    
+      <category term="shell" scheme="http://kisia.cn/tags/shell/"/>
+    
+      <category term="linux" scheme="http://kisia.cn/tags/linux/"/>
+    
+  </entry>
+  
+  <entry>
     <title>expect</title>
     <link href="http://kisia.cn/2020/06/20/expect/"/>
     <id>http://kisia.cn/2020/06/20/expect/</id>
     <published>2020-06-20T09:18:51.000Z</published>
-    <updated>2020-06-21T05:33:49.733Z</updated>
+    <updated>2020-06-21T05:47:21.347Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="background"><a href="#background" class="headerlink" title="background"></a>background</h2><p>use <code>expect</code> to realize the auto interactivity.</p><h2 id="use"><a href="#use" class="headerlink" title="use"></a>use</h2><h3 id="install"><a href="#install" class="headerlink" title="install"></a>install</h3><p>yum install -y expect</p><h3 id="code"><a href="#code" class="headerlink" title="code"></a>code</h3><figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash">!/bin/sh</span><br></code></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<h2 id="background"><a href="#background" class="headerlink" title="background"></a>background</h2><p>use <code>expect</code> to realize the auto interactivity.</p><h2 id="use"><a href="#use" class="headerlink" title="use"></a>use</h2><h3 id="install"><a href="#install" class="headerlink" title="install"></a>install</h3><p>yum install -y expect</p><h3 id="code"><a href="#code" class="headerlink" title="code"></a>code</h3><figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash">!/bin/sh</span><br>expect -c "<br>  spawn scp -P [ip] root@[host]:[path] [local-path]<br>  expect &#123;<br>    \"*password*\" &#123;set timeout 300;send \"password\r\";exp_continue;&#125;<br>    \"*yes*\" &#123;send \"yes\r\";exp_continue;&#125;<br>  &#125;<br>"<br></code></pre></td></tr></table></figure>]]></content>
     
     <summary type="html">
     

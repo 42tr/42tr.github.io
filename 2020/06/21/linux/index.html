@@ -20,7 +20,7 @@
 
   
 
-  <title>expect | Kisia</title>
+  <title>linux | Kisia</title>
 
   
 
@@ -94,18 +94,18 @@
   
   
     <div class="header-content">
-      <div class="post-image" style="background-image: url(http://pic1.win4000.com/wallpaper/d/56d8eafea0f21.jpg?down)"></div>
+      <div class="post-image" style="background-image: url(http://c-ssl.duitang.com/uploads/item/201705/04/20170504093921_hKA5N.jpeg)"></div>
       <div class="post-text">
         <div class="type-wrap">
           
         </div>
-        <h1 class="title-wrap">expect</h1>
+        <h1 class="title-wrap">linux</h1>
         <h2 class="title-sub-wrap">
           <strong>KsClouds</strong>
           <span>发布于</span>
           
   <a href="javascript:;" class="article-date">
-    <time datetime="2020-06-20T09:18:51.000Z" itemprop="datePublished">2020-06-20</time>
+    <time datetime="2020-06-21T05:55:08.000Z" itemprop="datePublished">2020-06-21</time>
   </a>
 
         </h2>
@@ -129,13 +129,12 @@
       
 
       <section class="article-entry">
-        <h2 id="background"><a href="#background" class="headerlink" title="background"></a>background</h2><p>use <code>expect</code> to realize the auto interactivity.</p>
-<h2 id="use"><a href="#use" class="headerlink" title="use"></a>use</h2><h3 id="install"><a href="#install" class="headerlink" title="install"></a>install</h3><p>yum install -y expect</p>
-<h3 id="code"><a href="#code" class="headerlink" title="code"></a>code</h3><figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash">!/bin/sh</span><br>expect -c "<br>  spawn scp -P [ip] root@[host]:[path] [local-path]<br>  expect &#123;<br>    \"*password*\" &#123;set timeout 300;send \"password\r\";exp_continue;&#125;<br>    \"*yes*\" &#123;send \"yes\r\";exp_continue;&#125;<br>  &#125;<br>"<br></code></pre></td></tr></table></figure>
+        <h3 id="gt-amp-gt-gt"><a href="#gt-amp-gt-gt" class="headerlink" title="&gt; &amp; &gt;&gt;"></a><code>&gt;</code> &amp; <code>&gt;&gt;</code></h3><p><code>&gt;</code> is used to override file, if file not exist, it will auto create. actually it creates a file every time and then replace the origin file.<br><code>&gt;&gt;</code> is used to append th file.</p>
+
       </section>
 
       <section class="article-footer">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/expect/" rel="tag">#expect</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shell/" rel="tag">#shell</a></li></ul>
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">#linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shell/" rel="tag">#shell</a></li></ul>
       </section>
 
       <section class="article-navs">
@@ -143,32 +142,17 @@
 <nav class="card-container card-article-nav">
   <div class="card-wrap">
     
-      <div id="article-nav-newer" class="card-item img">
-        <article>
-          
-            <div class="card-cover" style="background-image: url(http://c-ssl.duitang.com/uploads/item/201705/04/20170504093921_hKA5N.jpeg)"></div>
-          
-          <a class="card-link article-nav-link" href="/2020/06/21/linux/"></a>
-          <strong class="article-nav-caption">Newer</strong>
-          <p class="article-nav-title">
-            
-              linux
-            
-          </p>
-        </article>
-      </div>
-    
     
       <div id="article-nav-older" class="card-item img">
         <article>
           
-            <div class="card-cover" style="background-image: url(http://b-ssl.duitang.com/uploads/item/201509/20/20150920220852_ujJLm.jpeg)"></div>
+            <div class="card-cover" style="background-image: url(http://pic1.win4000.com/wallpaper/d/56d8eafea0f21.jpg?down)"></div>
           
-          <a class="card-link article-nav-link" href="/2020/06/20/springboot/"></a>
+          <a class="card-link article-nav-link" href="/2020/06/20/expect/"></a>
           <strong class="article-nav-caption">Older</strong>
           <p class="article-nav-title">
             
-              springboot
+              expect
             
           </p>
         </article>
