@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://kisia.cn/"/>
-  <updated>2020-06-19T01:26:18.355Z</updated>
+  <updated>2020-06-20T09:28:11.094Z</updated>
   <id>http://kisia.cn/</id>
   
   <author>
@@ -17,13 +17,63 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>expect</title>
+    <link href="http://kisia.cn/2020/06/20/expect/"/>
+    <id>http://kisia.cn/2020/06/20/expect/</id>
+    <published>2020-06-20T09:18:51.000Z</published>
+    <updated>2020-06-20T09:28:11.094Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="background"><a href="#background" class="headerlink" title="background"></a>background</h2><p>use <code>expect</code> to realize the auto interactivity.</p><h2 id="use"><a href="#use" class="headerlink" title="use"></a>use</h2><h3 id="install"><a href="#install" class="headerlink" title="install"></a>install</h3><p>yum install -y expect</p><h3 id="code"><a href="#code" class="headerlink" title="code"></a>code</h3><figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash">!/bin/sh</span><br></code></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;background&quot;&gt;&lt;a href=&quot;#background&quot; class=&quot;headerlink&quot; title=&quot;background&quot;&gt;&lt;/a&gt;background&lt;/h2&gt;&lt;p&gt;use &lt;code&gt;expect&lt;/code&gt; to realize the
+      
+    
+    </summary>
+    
+    
+    
+      <category term="shell" scheme="http://kisia.cn/tags/shell/"/>
+    
+      <category term="expect" scheme="http://kisia.cn/tags/expect/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>springboot</title>
+    <link href="http://kisia.cn/2020/06/20/springboot/"/>
+    <id>http://kisia.cn/2020/06/20/springboot/</id>
+    <published>2020-06-20T09:11:12.000Z</published>
+    <updated>2020-06-20T09:17:42.929Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="set-upload-file-limit"><a href="#set-upload-file-limit" class="headerlink" title="set upload file limit"></a>set upload file limit</h3><p>default value is 1MB</p><figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs properties"><span class="hljs-meta">spring.servlet.multipart.max-file-size</span>=<span class="hljs-string">30MB</span><br><span class="hljs-meta">spring.servlet.multipart.max-request-size</span>=<span class="hljs-string">30MB</span><br></code></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;set-upload-file-limit&quot;&gt;&lt;a href=&quot;#set-upload-file-limit&quot; class=&quot;headerlink&quot; title=&quot;set upload file limit&quot;&gt;&lt;/a&gt;set upload file limit&lt;/
+      
+    
+    </summary>
+    
+    
+    
+      <category term="springboot" scheme="http://kisia.cn/tags/springboot/"/>
+    
+  </entry>
+  
+  <entry>
     <title>spring</title>
     <link href="http://kisia.cn/2020/06/19/spring/"/>
     <id>http://kisia.cn/2020/06/19/spring/</id>
     <published>2020-06-19T01:16:16.000Z</published>
-    <updated>2020-06-19T01:26:18.355Z</updated>
+    <updated>2020-06-19T01:45:16.602Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="common-interface"><a href="#common-interface" class="headerlink" title="common interface"></a>common interface</h2><h3 id="InitializingBean"><a href="#InitializingBean" class="headerlink" title="InitializingBean"></a>InitializingBean</h3><p>provide init-method for a bean, implements <code>afterPropertiesSet</code> method.<br>we can also set init-method by using <code>setting.properties</code>. </p>]]></content>
+    <content type="html"><![CDATA[<h2 id="common-interface"><a href="#common-interface" class="headerlink" title="common interface"></a>common interface</h2><h3 id="InitializingBean"><a href="#InitializingBean" class="headerlink" title="InitializingBean"></a>InitializingBean</h3><p>provide init method for a bean, implements <code>afterPropertiesSet</code> method.<br>we can also set <code>init-method</code> in <code>setting.properties</code>, it’s using reflect to realize.<br>implements <code>InitializingBean</code> is more efficient while using setting file removes the dependence of spring.</p>]]></content>
     
     <summary type="html">
     
@@ -148,9 +198,9 @@
     <link href="http://kisia.cn/2020/06/09/springboot-mybatis/"/>
     <id>http://kisia.cn/2020/06/09/springboot-mybatis/</id>
     <published>2020-06-09T13:34:26.000Z</published>
-    <updated>2020-06-18T06:51:40.131Z</updated>
+    <updated>2020-06-21T01:21:49.967Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="annotations"><a href="#annotations" class="headerlink" title="annotations"></a>annotations</h3><ul><li><code>@Mapper</code> add to mapper, use <code>@MapperScan(“com.a”, “com.b”)</code> in <code>Application.class</code> instead</li></ul>]]></content>
+    <content type="html"><![CDATA[<h3 id="annotations"><a href="#annotations" class="headerlink" title="annotations"></a>annotations</h3><ul><li><code>@Mapper</code> add to mapper, use <code>@MapperScan(“com.a”, “com.b”)</code> in <code>Application.class</code> instead</li><li>maybe need use <code>@Repository</code> to avoid error when <code>@Autowired</code>.</li></ul><h3 id="xml"><a href="#xml" class="headerlink" title="xml"></a>xml</h3><h4 id="like"><a href="#like" class="headerlink" title="like"></a>like</h4><ul><li>concat(concat(‘%’,#{username}),’%’)</li><li>add <code>%</code> in param</li><li>use <code>bind</code> label<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"selectPersons"</span> <span class="hljs-attr">resultType</span>=<span class="hljs-string">"person"</span> <span class="hljs-attr">parameterType</span>=<span class="hljs-string">"person"</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">bind</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"pattern"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"'%' + _parameter.username + '%'"</span> /&gt;</span><br>  select id,sex,age,username,password <br>  from person<br>  where username LIKE #&#123;pattern&#125;<br><span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span><br></code></pre></td></tr></table></figure></li></ul>]]></content>
     
     <summary type="html">
     

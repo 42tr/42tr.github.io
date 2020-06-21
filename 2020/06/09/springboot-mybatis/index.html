@@ -131,6 +131,12 @@
       <section class="article-entry">
         <h3 id="annotations"><a href="#annotations" class="headerlink" title="annotations"></a>annotations</h3><ul>
 <li><code>@Mapper</code> add to mapper, use <code>@MapperScan(“com.a”, “com.b”)</code> in <code>Application.class</code> instead</li>
+<li>maybe need use <code>@Repository</code> to avoid error when <code>@Autowired</code>.</li>
+</ul>
+<h3 id="xml"><a href="#xml" class="headerlink" title="xml"></a>xml</h3><h4 id="like"><a href="#like" class="headerlink" title="like"></a>like</h4><ul>
+<li>concat(concat(‘%’,#{username}),’%’)</li>
+<li>add <code>%</code> in param</li>
+<li>use <code>bind</code> label<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"selectPersons"</span> <span class="hljs-attr">resultType</span>=<span class="hljs-string">"person"</span> <span class="hljs-attr">parameterType</span>=<span class="hljs-string">"person"</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">bind</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"pattern"</span> <span class="hljs-attr">value</span>=<span class="hljs-string">"'%' + _parameter.username + '%'"</span> /&gt;</span><br>  select id,sex,age,username,password <br>  from person<br>  where username LIKE #&#123;pattern&#125;<br><span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span><br></code></pre></td></tr></table></figure></li>
 </ul>
 
       </section>
