@@ -9,5 +9,6 @@ cover: http://a.hiphotos.baidu.com/zhidao/pic/item/50da81cb39dbb6fdfaede00c0a24a
 
 ## common interface
 ### InitializingBean
-provide init-method for a bean, implements `afterPropertiesSet` method.
-we can also set init-method by using `setting.properties`. 
+provide init method for a bean, implements `afterPropertiesSet` method.
+we can also set `init-method` in `setting.properties`, it's using reflect to realize.
+implements `InitializingBean` is more efficient while using setting file removes the dependence of spring.
