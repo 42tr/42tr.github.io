@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://kisia.cn/"/>
-  <updated>2020-06-21T05:59:40.968Z</updated>
+  <updated>2020-06-26T04:09:08.252Z</updated>
   <id>http://kisia.cn/</id>
   
   <author>
@@ -17,13 +17,37 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>base64 coding principle</title>
+    <link href="http://kisia.cn/2020/06/26/base64/"/>
+    <id>http://kisia.cn/2020/06/26/base64/</id>
+    <published>2020-06-26T03:09:52.000Z</published>
+    <updated>2020-06-26T04:09:08.252Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="background"><a href="#background" class="headerlink" title="background"></a>background</h2><p><code>base64</code> has become common 8-bit code in the network.<br>It appears because of the spread of the internet.</p><blockquote><p>It works when transmit English, but it will display as gibberish when use Chinese and some other language.</p></blockquote><h2 id="principle"><a href="#principle" class="headerlink" title="principle"></a>principle</h2><p><code>base64</code> use <code>A-Za-z0-9+/</code> as index table, and <code>=</code> as fill character.</p><h3 id="convert-steps"><a href="#convert-steps" class="headerlink" title="convert steps"></a>convert steps</h3><ul><li>transform the character string to 3 bytes arrays, 8 bits per byte, 24 bits totally.</li><li>regroup 3 arrays to 4 arrays, 6 bits per array.</li><li>add <code>00</code> before each array, so that 3 bytes change to 4 bytes.</li><li>get base64 from the base64 index table.<table><thead><tr><th>binary</th><th align="center">base64</th><th align="left">binary</th><th align="center">base64</th><th align="left">binary</th><th align="center">base64</th><th>binary</th><th align="center">base64</th></tr></thead><tbody><tr><td>00000000</td><td align="center">A</td><td align="left">00010000</td><td align="center">Q</td><td align="left">00100000</td><td align="center">g</td><td>00110000</td><td align="center">w</td></tr><tr><td>00000001</td><td align="center">B</td><td align="left">00010001</td><td align="center">R</td><td align="left">00100001</td><td align="center">h</td><td>00110001</td><td align="center">x</td></tr><tr><td>00000010</td><td align="center">C</td><td align="left">00010010</td><td align="center">S</td><td align="left">00100010</td><td align="center">i</td><td>00110010</td><td align="center">y</td></tr><tr><td>00000011</td><td align="center">D</td><td align="left">00010011</td><td align="center">T</td><td align="left">00100011</td><td align="center">j</td><td>00110011</td><td align="center">z</td></tr><tr><td>00000100</td><td align="center">E</td><td align="left">00010100</td><td align="center">U</td><td align="left">00100100</td><td align="center">k</td><td>00110100</td><td align="center">0</td></tr><tr><td>00000101</td><td align="center">F</td><td align="left">00010101</td><td align="center">V</td><td align="left">00100101</td><td align="center">l</td><td>00110101</td><td align="center">1</td></tr><tr><td>00000110</td><td align="center">G</td><td align="left">00010110</td><td align="center">W</td><td align="left">00100110</td><td align="center">m</td><td>00110110</td><td align="center">2</td></tr><tr><td>00000111</td><td align="center">H</td><td align="left">00010111</td><td align="center">X</td><td align="left">00100111</td><td align="center">n</td><td>00110111</td><td align="center">3</td></tr><tr><td>00001000</td><td align="center">I</td><td align="left">00011000</td><td align="center">Y</td><td align="left">00101000</td><td align="center">o</td><td>00111000</td><td align="center">4</td></tr><tr><td>00001001</td><td align="center">J</td><td align="left">00011001</td><td align="center">Z</td><td align="left">00101001</td><td align="center">p</td><td>00111001</td><td align="center">5</td></tr><tr><td>00001010</td><td align="center">K</td><td align="left">00011010</td><td align="center">a</td><td align="left">00101010</td><td align="center">q</td><td>00111010</td><td align="center">6</td></tr><tr><td>00001011</td><td align="center">L</td><td align="left">00011011</td><td align="center">b</td><td align="left">00101011</td><td align="center">r</td><td>00111011</td><td align="center">7</td></tr><tr><td>00001100</td><td align="center">M</td><td align="left">00011100</td><td align="center">c</td><td align="left">00101100</td><td align="center">s</td><td>00111100</td><td align="center">8</td></tr><tr><td>00001101</td><td align="center">N</td><td align="left">00011101</td><td align="center">d</td><td align="left">00101101</td><td align="center">t</td><td>00111101</td><td align="center">9</td></tr><tr><td>00001110</td><td align="center">O</td><td align="left">00011110</td><td align="center">e</td><td align="left">00101110</td><td align="center">u</td><td>00111110</td><td align="center">+</td></tr><tr><td>00001111</td><td align="center">P</td><td align="left">00011111</td><td align="center">f</td><td align="left">00101111</td><td align="center">v</td><td>00111111</td><td align="center">/</td></tr></tbody></table></li></ul><h2 id="examples"><a href="#examples" class="headerlink" title="examples"></a>examples</h2><h3 id="Man"><a href="#Man" class="headerlink" title="Man"></a><code>Man</code></h3><p>ASSII: M - 77, a - 97, n - 110<br>binary: M - 01001101, a - 01100001, n - 01101110<br>regroup: 00010011, 00010110, 00000101, 00101110<br>base64: T, W, F, u</p><h3 id="A"><a href="#A" class="headerlink" title="A"></a><code>A</code></h3><p>ASSII: A - 65<br>binary: A - 01000001<br>regroup: 00010000, 00010000<br>base64: Q, Q, =, = </p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;background&quot;&gt;&lt;a href=&quot;#background&quot; class=&quot;headerlink&quot; title=&quot;background&quot;&gt;&lt;/a&gt;background&lt;/h2&gt;&lt;p&gt;&lt;code&gt;base64&lt;/code&gt; has become common 
+      
+    
+    </summary>
+    
+    
+    
+      <category term="base64" scheme="http://kisia.cn/tags/base64/"/>
+    
+  </entry>
+  
+  <entry>
     <title>linux</title>
     <link href="http://kisia.cn/2020/06/21/linux/"/>
     <id>http://kisia.cn/2020/06/21/linux/</id>
     <published>2020-06-21T05:55:08.000Z</published>
-    <updated>2020-06-21T05:59:40.968Z</updated>
+    <updated>2020-06-26T04:09:45.198Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="gt-amp-gt-gt"><a href="#gt-amp-gt-gt" class="headerlink" title="&gt; &amp; &gt;&gt;"></a><code>&gt;</code> &amp; <code>&gt;&gt;</code></h3><p><code>&gt;</code> is used to override file, if file not exist, it will auto create. actually it creates a file every time and then replace the origin file.<br><code>&gt;&gt;</code> is used to append th file.</p>]]></content>
+    <content type="html"><![CDATA[<h3 id="gt-amp-gt-gt"><a href="#gt-amp-gt-gt" class="headerlink" title="&gt; &amp; &gt;&gt;"></a><code>&gt;</code> &amp; <code>&gt;&gt;</code></h3><p><code>&gt;</code> is used to override file, if file not exist, it will auto create. actually it creates a file every time and then replace the origin file.<br><code>&gt;&gt;</code> is used to append th file.</p><h3 id="sed"><a href="#sed" class="headerlink" title="sed"></a><code>sed</code></h3><p><code>sed</code> is used to handle txt.</p><figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">sed [-hnV] [-e&lt;script&gt;] [-f&lt;script&gt;] [txt]<br></code></pre></td></tr></table></figure><ul><li>modify <code>sed -i &#39;s/jingqing-mt-[a-z]:/jingqing-mt:/g&#39; /data/operations/dockertars/jingqing-mt-st.k8s.yaml</code></li></ul><h3 id="if"><a href="#if" class="headerlink" title="if"></a>if</h3><figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs shell">if [command]<br>then<br>    script<br>elif [command]<br>    script<br>else<br>    script<br>fi<br></code></pre></td></tr></table></figure><h4 id="file-category-exist"><a href="#file-category-exist" class="headerlink" title="file/category exist"></a>file/category exist</h4><p>[]</p>]]></content>
     
     <summary type="html">
     
@@ -73,7 +97,7 @@
     <link href="http://kisia.cn/2020/06/20/springboot/"/>
     <id>http://kisia.cn/2020/06/20/springboot/</id>
     <published>2020-06-20T09:11:12.000Z</published>
-    <updated>2020-06-20T09:17:42.929Z</updated>
+    <updated>2020-06-26T04:10:20.779Z</updated>
     
     <content type="html"><![CDATA[<h3 id="set-upload-file-limit"><a href="#set-upload-file-limit" class="headerlink" title="set upload file limit"></a>set upload file limit</h3><p>default value is 1MB</p><figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs properties"><span class="hljs-meta">spring.servlet.multipart.max-file-size</span>=<span class="hljs-string">30MB</span><br><span class="hljs-meta">spring.servlet.multipart.max-request-size</span>=<span class="hljs-string">30MB</span><br></code></pre></td></tr></table></figure>]]></content>
     

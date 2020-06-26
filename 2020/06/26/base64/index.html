@@ -20,7 +20,7 @@
 
   
 
-  <title>expect | Kisia</title>
+  <title>base64 coding principle | Kisia</title>
 
   
 
@@ -94,18 +94,18 @@
   
   
     <div class="header-content">
-      <div class="post-image" style="background-image: url(http://pic1.win4000.com/wallpaper/d/56d8eafea0f21.jpg?down)"></div>
+      <div class="post-image" style="background-image: url(http://b-ssl.duitang.com/uploads/item/201601/29/20160129201251_4uiQa.jpeg)"></div>
       <div class="post-text">
         <div class="type-wrap">
           
         </div>
-        <h1 class="title-wrap">expect</h1>
+        <h1 class="title-wrap">base64 coding principle</h1>
         <h2 class="title-sub-wrap">
           <strong>KsClouds</strong>
           <span>发布于</span>
           
   <a href="javascript:;" class="article-date">
-    <time datetime="2020-06-20T09:18:51.000Z" itemprop="datePublished">2020-06-20</time>
+    <time datetime="2020-06-26T03:09:52.000Z" itemprop="datePublished">2020-06-26</time>
   </a>
 
         </h2>
@@ -129,13 +129,198 @@
       
 
       <section class="article-entry">
-        <h2 id="background"><a href="#background" class="headerlink" title="background"></a>background</h2><p>use <code>expect</code> to realize the auto interactivity.</p>
-<h2 id="use"><a href="#use" class="headerlink" title="use"></a>use</h2><h3 id="install"><a href="#install" class="headerlink" title="install"></a>install</h3><p>yum install -y expect</p>
-<h3 id="code"><a href="#code" class="headerlink" title="code"></a>code</h3><figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash">!/bin/sh</span><br>expect -c "<br>  spawn scp -P [port] root@[host]:[path] [local-path]<br>  expect &#123;<br>    \"*password*\" &#123;set timeout 300;send \"password\r\";exp_continue;&#125;<br>    \"*yes*\" &#123;send \"yes\r\";exp_continue;&#125;<br>  &#125;<br>"<br></code></pre></td></tr></table></figure>
+        <h2 id="background"><a href="#background" class="headerlink" title="background"></a>background</h2><p><code>base64</code> has become common 8-bit code in the network.<br>It appears because of the spread of the internet.</p>
+<blockquote>
+<p>It works when transmit English, but it will display as gibberish when use Chinese and some other language.</p>
+</blockquote>
+<h2 id="principle"><a href="#principle" class="headerlink" title="principle"></a>principle</h2><p><code>base64</code> use <code>A-Za-z0-9+/</code> as index table, and <code>=</code> as fill character.</p>
+<h3 id="convert-steps"><a href="#convert-steps" class="headerlink" title="convert steps"></a>convert steps</h3><ul>
+<li>transform the character string to 3 bytes arrays, 8 bits per byte, 24 bits totally.</li>
+<li>regroup 3 arrays to 4 arrays, 6 bits per array.</li>
+<li>add <code>00</code> before each array, so that 3 bytes change to 4 bytes.</li>
+<li>get base64 from the base64 index table.<table>
+<thead>
+<tr>
+<th>binary</th>
+<th align="center">base64</th>
+<th align="left">binary</th>
+<th align="center">base64</th>
+<th align="left">binary</th>
+<th align="center">base64</th>
+<th>binary</th>
+<th align="center">base64</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>00000000</td>
+<td align="center">A</td>
+<td align="left">00010000</td>
+<td align="center">Q</td>
+<td align="left">00100000</td>
+<td align="center">g</td>
+<td>00110000</td>
+<td align="center">w</td>
+</tr>
+<tr>
+<td>00000001</td>
+<td align="center">B</td>
+<td align="left">00010001</td>
+<td align="center">R</td>
+<td align="left">00100001</td>
+<td align="center">h</td>
+<td>00110001</td>
+<td align="center">x</td>
+</tr>
+<tr>
+<td>00000010</td>
+<td align="center">C</td>
+<td align="left">00010010</td>
+<td align="center">S</td>
+<td align="left">00100010</td>
+<td align="center">i</td>
+<td>00110010</td>
+<td align="center">y</td>
+</tr>
+<tr>
+<td>00000011</td>
+<td align="center">D</td>
+<td align="left">00010011</td>
+<td align="center">T</td>
+<td align="left">00100011</td>
+<td align="center">j</td>
+<td>00110011</td>
+<td align="center">z</td>
+</tr>
+<tr>
+<td>00000100</td>
+<td align="center">E</td>
+<td align="left">00010100</td>
+<td align="center">U</td>
+<td align="left">00100100</td>
+<td align="center">k</td>
+<td>00110100</td>
+<td align="center">0</td>
+</tr>
+<tr>
+<td>00000101</td>
+<td align="center">F</td>
+<td align="left">00010101</td>
+<td align="center">V</td>
+<td align="left">00100101</td>
+<td align="center">l</td>
+<td>00110101</td>
+<td align="center">1</td>
+</tr>
+<tr>
+<td>00000110</td>
+<td align="center">G</td>
+<td align="left">00010110</td>
+<td align="center">W</td>
+<td align="left">00100110</td>
+<td align="center">m</td>
+<td>00110110</td>
+<td align="center">2</td>
+</tr>
+<tr>
+<td>00000111</td>
+<td align="center">H</td>
+<td align="left">00010111</td>
+<td align="center">X</td>
+<td align="left">00100111</td>
+<td align="center">n</td>
+<td>00110111</td>
+<td align="center">3</td>
+</tr>
+<tr>
+<td>00001000</td>
+<td align="center">I</td>
+<td align="left">00011000</td>
+<td align="center">Y</td>
+<td align="left">00101000</td>
+<td align="center">o</td>
+<td>00111000</td>
+<td align="center">4</td>
+</tr>
+<tr>
+<td>00001001</td>
+<td align="center">J</td>
+<td align="left">00011001</td>
+<td align="center">Z</td>
+<td align="left">00101001</td>
+<td align="center">p</td>
+<td>00111001</td>
+<td align="center">5</td>
+</tr>
+<tr>
+<td>00001010</td>
+<td align="center">K</td>
+<td align="left">00011010</td>
+<td align="center">a</td>
+<td align="left">00101010</td>
+<td align="center">q</td>
+<td>00111010</td>
+<td align="center">6</td>
+</tr>
+<tr>
+<td>00001011</td>
+<td align="center">L</td>
+<td align="left">00011011</td>
+<td align="center">b</td>
+<td align="left">00101011</td>
+<td align="center">r</td>
+<td>00111011</td>
+<td align="center">7</td>
+</tr>
+<tr>
+<td>00001100</td>
+<td align="center">M</td>
+<td align="left">00011100</td>
+<td align="center">c</td>
+<td align="left">00101100</td>
+<td align="center">s</td>
+<td>00111100</td>
+<td align="center">8</td>
+</tr>
+<tr>
+<td>00001101</td>
+<td align="center">N</td>
+<td align="left">00011101</td>
+<td align="center">d</td>
+<td align="left">00101101</td>
+<td align="center">t</td>
+<td>00111101</td>
+<td align="center">9</td>
+</tr>
+<tr>
+<td>00001110</td>
+<td align="center">O</td>
+<td align="left">00011110</td>
+<td align="center">e</td>
+<td align="left">00101110</td>
+<td align="center">u</td>
+<td>00111110</td>
+<td align="center">+</td>
+</tr>
+<tr>
+<td>00001111</td>
+<td align="center">P</td>
+<td align="left">00011111</td>
+<td align="center">f</td>
+<td align="left">00101111</td>
+<td align="center">v</td>
+<td>00111111</td>
+<td align="center">/</td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<h2 id="examples"><a href="#examples" class="headerlink" title="examples"></a>examples</h2><h3 id="Man"><a href="#Man" class="headerlink" title="Man"></a><code>Man</code></h3><p>ASSII: M - 77, a - 97, n - 110<br>binary: M - 01001101, a - 01100001, n - 01101110<br>regroup: 00010011, 00010110, 00000101, 00101110<br>base64: T, W, F, u</p>
+<h3 id="A"><a href="#A" class="headerlink" title="A"></a><code>A</code></h3><p>ASSII: A - 65<br>binary: A - 01000001<br>regroup: 00010000, 00010000<br>base64: Q, Q, =, = </p>
+
       </section>
 
       <section class="article-footer">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/expect/" rel="tag">#expect</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shell/" rel="tag">#shell</a></li></ul>
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/base64/" rel="tag">#base64</a></li></ul>
       </section>
 
       <section class="article-navs">
@@ -143,32 +328,17 @@
 <nav class="card-container card-article-nav">
   <div class="card-wrap">
     
-      <div id="article-nav-newer" class="card-item img">
+    
+      <div id="article-nav-older" class="card-item img">
         <article>
           
             <div class="card-cover" style="background-image: url(http://gss0.baidu.com/-4o3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/d1a20cf431adcbef127d465caeaf2edda3cc9f1a.jpg)"></div>
           
           <a class="card-link article-nav-link" href="/2020/06/21/linux/"></a>
-          <strong class="article-nav-caption">Newer</strong>
-          <p class="article-nav-title">
-            
-              linux
-            
-          </p>
-        </article>
-      </div>
-    
-    
-      <div id="article-nav-older" class="card-item img">
-        <article>
-          
-            <div class="card-cover" style="background-image: url(http://b-ssl.duitang.com/uploads/item/201801/15/20180115155640_XsY8k.jpeg)"></div>
-          
-          <a class="card-link article-nav-link" href="/2020/06/20/springboot/"></a>
           <strong class="article-nav-caption">Older</strong>
           <p class="article-nav-title">
             
-              springboot
+              linux
             
           </p>
         </article>
