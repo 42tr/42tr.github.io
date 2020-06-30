@@ -19,8 +19,8 @@ It appears because of the spread of the internet.
 - regroup 3 arrays to 4 arrays, 6 bits per array.
 - add `00` before each array, so that 3 bytes change to 4 bytes.
 - get base64 from the base64 index table.
-| binary   | base64 | binary   | base64 | binary   | base64 | binary   | base64 |
-| -------- | :----: | :------- | :----: | :------- | :----: | -------- | :----: |
+|  binary  | base64 |  binary  | base64 |  binary  | base64 |  binary  | base64 |
+| :------: | :----: | :------: | :----: | :------: | :----: | :------: | :----: |
 | 00000000 |   A    | 00010000 |   Q    | 00100000 |   g    | 00110000 |   w    |
 | 00000001 |   B    | 00010001 |   R    | 00100001 |   h    | 00110001 |   x    |
 | 00000010 |   C    | 00010010 |   S    | 00100010 |   i    | 00110010 |   y    |

@@ -31,3 +31,8 @@ Map<String, List<AutoInstanceTemplatePosShow>> posShowAllMap = ListUtil.list2Map
 Map<String, List<String>> posShowMap = ListUtil.list2Map(autoMapper.queryPosShowByInstanceIds(instanceIdList),
         AutoInstanceTemplatePosShow::getInstanceId, posShow -> ListUtil.asList(posShow.getPosTemplateId()));
 ```
+
+### map to list
+```java
+map.values().stream().collect(Collectors.toList());
+```
