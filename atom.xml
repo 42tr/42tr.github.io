@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://kisia.cn/"/>
-  <updated>2020-06-26T04:17:17.013Z</updated>
+  <updated>2020-07-04T07:08:11.181Z</updated>
   <id>http://kisia.cn/</id>
   
   <author>
@@ -15,6 +15,140 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>xml</title>
+    <link href="http://kisia.cn/2020/07/04/xml/"/>
+    <id>http://kisia.cn/2020/07/04/xml/</id>
+    <published>2020-07-04T07:07:30.000Z</published>
+    <updated>2020-07-04T07:08:11.181Z</updated>
+    
+    <content type="html"><![CDATA[<ol><li><![CDATA[]]>和转义字符<br>被<![CDATA[]]>这个标记所包含的内容将表示为纯文本，比如<![CDATA[<]]>表示文本内容“&lt;”。<br>　　此标记用于xml文档中，我们先来看看使用转义符的情况。我们知道，在xml中，”&lt;”、”&gt;”、”&amp;”等字符是不能直接存入的，否则xml语法检查时会报错，如果想在xml中使用这些符号，必须将其转义为实体，如”&lt;”、”&gt;”、”&amp;”，这样才能保存进xml文档。<br>　　在使用程序读取的时候，解析器会自动将这些实体转换回”&lt;”、”&gt;”、”&amp;”。举个例子：<br>　　<age> age &lt; 30 </age><br>　　上面这种写法会报错，应该这样写：<br>　　<age> age &lt; 30 </age><br>　　值得注意的是：<br>　　(1) 转义序列字符之间不能有空格；<br>　　(2) 转义序列必须以”;”结束；<br>　　(3) 单独出现的”&amp;”不会被认为是转义的开始；<br>　　(4) 区分大小写。<br>　　<br>　　在XML中，需要转义的字符有：<br>　　(1)&amp;　　　&amp;<br>　　(2)&lt;　　　&lt;<br>　　(3)&gt;　　　&gt;<br>　　(4)＂　　　&quot;<br>　　(5)＇　　　&apos;<br>　　但是严格来说，在XML中只有”&lt;”和”&amp;”是非法的，其它三个都是可以合法存在的，但是，把它们都进行转义是一个好的习惯。<br>　　不管怎么样，转义前的字符也好，转义后的字符也好，都会被xml解析器解析，为了方便起见，使用<![CDATA[]]>来包含不被xml解析器解析的内容。但要注意的是：<br>　　(1) 此部分不能再包含”]]&gt;”；<br>　　(2) 不允许嵌套使用；<br>　　(3)”]]&gt;”这部分不能包含空格或者换行。<br>　　最后，说说<![CDATA[]]>和xml转移字符的关系，它们两个看起来是不是感觉功能重复了？<br>　　是的，它们的功能就是一样的，只是应用场景和需求有些不同：<br>　　(1)<![CDATA[]]>不能适用所有情况，转义字符可以；<br>　　(2) 对于短字符串<![CDATA[]]>写起来啰嗦，对于长字符串转义字符写起来可读性差；<br>　　(3) <![CDATA[]]>表示xml解析器忽略解析，所以更快。</li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;ol&gt;
+&lt;li&gt;&lt;![CDATA[]]&gt;和转义字符&lt;br&gt;被&lt;![CDATA[]]&gt;这个标记所包含的内容将表示为纯文本，比如&lt;![CDATA[&lt;]]&gt;表示文本内容“&amp;lt;”。&lt;br&gt;　　此标记用于xml文档中，我们先来看看使用转义符的情况。我们知道，在xml中，”&amp;lt;”、
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>json</title>
+    <link href="http://kisia.cn/2020/07/04/json/"/>
+    <id>http://kisia.cn/2020/07/04/json/</id>
+    <published>2020-07-04T06:57:04.000Z</published>
+    <updated>2020-07-04T07:06:26.167Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="JSON-JavaScript-Object-Notation"><a href="#JSON-JavaScript-Object-Notation" class="headerlink" title="JSON - JavaScript Object Notation"></a>JSON - JavaScript Object Notation</h2><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><ul><li>存储和交换文本信息的语法，类似XML，比XML更小、更快、更易解析</li><li>轻量级文本数据交换格式</li><li>独立于语言：使用JavaScript语法来描述数据对象，但是独立于语言和平台；<pre><code>json解析器和json库支持许多不同的编程语言，目前非常多的动态编程语言(PHP,JSP,.NET)都支持json。</code></pre></li><li>具有自我描述性，更易理解。</li></ul><h2 id="json-转换为-js-对象"><a href="#json-转换为-js-对象" class="headerlink" title="json 转换为 js 对象"></a>json 转换为 js 对象</h2><ul><li>json 文本格式在语法上与创建js对象的代码相同，因而无需解析器，js程序能够使用内建的 eval()函数，用 json 数据来生成原生的js对象。</li><li>必须把文本包围在括号中，这样才能避免语法错误：<br>实例<blockquote><p>var txt = ‘{ “sites” : [‘ +</p><pre><code>&apos;{ &quot;name&quot;:&quot;菜鸟教程&quot; , &quot;url&quot;:&quot;www.runoob.com&quot; },&apos; +&apos;{ &quot;name&quot;:&quot;google&quot; , &quot;url&quot;:&quot;www.google.com&quot; },&apos; +&apos;{ &quot;name&quot;:&quot;微博&quot; , &quot;url&quot;:&quot;www.weibo.com&quot; } ]}&apos;;</code></pre><p>var obj = eval (“(“ + txt + “)”);</p></blockquote></li></ul><h2 id="json-amp-xml"><a href="#json-amp-xml" class="headerlink" title="json&amp;xml"></a>json&amp;xml</h2><p>相同：</p><ul><li>纯文本</li><li>具有“自我描述性”（人类可读）</li><li>具有层级结构（值中存在值）</li><li>可通过js进行解析</li><li>数据可使用AJAX进行传输<br>不同：</li><li>没有结束标签</li><li>更短</li><li>读写速度更快</li><li>能够使用内建的JavaScript eval()方法进行解析</li><li>使用数组</li><li>不适用保留字</li></ul><h2 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h2><p>json语法是js对象表示语法的子集。</p><ul><li>数据在名称/值对中</li><li>数据由逗号分开</li><li>大括号保存对象</li><li>中括号保存数据</li></ul><h3 id="1-JSON名称-值对-key-value"><a href="#1-JSON名称-值对-key-value" class="headerlink" title="1. JSON名称/值对:key/value"></a>1. JSON名称/值对:key/value</h3><ul><li>key必须是字符串，value可以是合法的JSON数据类型；</li><li>key和value中使用”:”分隔；</li><li>每个key/value对使用”,”分隔。<pre><code>格式:(&quot;name&quot;:&quot;xx&quot;)等价于js：(name = &quot;xx&quot;)</code></pre></li></ul><h3 id="2-JSON值类型"><a href="#2-JSON值类型" class="headerlink" title="2. JSON值类型"></a>2. JSON值类型</h3><ul><li>数字</li><li>字符串(双引号)</li><li>布尔值</li><li>对象(大括号)<blockquote><p>{“name”:”菜鸟教程”,”url”:”<a href="http://www.runoob.com&quot;}" target="_blank" rel="noopener">www.runoob.com&quot;}</a></p></blockquote></li><li>数组(中括号)<blockquote><p>{“sites”:[{“name”:”菜鸟教程”,”url”:”<a href="http://www.runoob.com&quot;}" target="_blank" rel="noopener">www.runoob.com&quot;}</a>,<br>{“name”:”google”,”url”:”<a href="http://www.google.com&quot;}" target="_blank" rel="noopener">www.google.com&quot;}</a>,<br>{“name”:”微博”,”url”:”<a href="http://www.weibo.com&quot;}]}">www.weibo.com&quot;}]}</a></p></blockquote></li><li>null</li></ul><h3 id="3-JSON使用案例"><a href="#3-JSON使用案例" class="headerlink" title="3. JSON使用案例"></a>3. JSON使用案例</h3><p>可以直接在js中处理json<br>var sites = [<br>    { “name”:”runoob” , “url”:”<a href="http://www.runoob.com&quot;" target="_blank" rel="noopener">www.runoob.com&quot;</a> },<br>    { “name”:”google” , “url”:”<a href="http://www.google.com&quot;" target="_blank" rel="noopener">www.google.com&quot;</a> },<br>    { “name”:”微博” , “url”:”<a href="http://www.weibo.com&quot;" target="_blank" rel="noopener">www.weibo.com&quot;</a> }<br>];<br>sites[0].name;</p><h3 id="4-访问对象值"><a href="#4-访问对象值" class="headerlink" title="4. 访问对象值"></a>4. 访问对象值</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> myObj, x;<br>myObj = &#123; <span class="hljs-string">"name"</span>:<span class="hljs-string">"runoob"</span>, <span class="hljs-string">"alexa"</span>:<span class="hljs-number">10000</span>, <span class="hljs-string">"site"</span>:<span class="hljs-literal">null</span> &#125;;<br><span class="hljs-comment">// 使用.</span><br>x = myObj.name;<br><span class="hljs-comment">// 使用[]</span><br>x = myObj[<span class="hljs-string">"name"</span>]<br></code></pre></td></tr></table></figure><h3 id="5-循环对象"><a href="#5-循环对象" class="headerlink" title="5. 循环对象"></a>5. 循环对象</h3><p>1）使用for-in来循环对象的属性</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> myObj = &#123; <span class="hljs-string">"name"</span>:<span class="hljs-string">"runoob"</span>, <span class="hljs-string">"alexa"</span>:<span class="hljs-number">10000</span>, <span class="hljs-string">"site"</span>:<span class="hljs-literal">null</span> &#125;;<br><span class="hljs-keyword">for</span> (x <span class="hljs-keyword">in</span> myObj) &#123;<br>    <span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"demo"</span>).innerHTML += x + <span class="hljs-string">"&lt;br&gt;"</span>;<br>&#125;<br></code></pre></td></tr></table></figure><p>2）在 for-in 循环对象的属性时，使用中括号”[]”来访问属性的值</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> myObj = &#123; <span class="hljs-string">"name"</span>:<span class="hljs-string">"runoob"</span>, <span class="hljs-string">"alexa"</span>:<span class="hljs-number">10000</span>, <span class="hljs-string">"site"</span>:<span class="hljs-literal">null</span> &#125;;<br><span class="hljs-keyword">for</span> (x <span class="hljs-keyword">in</span> myObj) &#123;<br><span class="hljs-built_in">document</span>.getElementById(<span class="hljs-string">"demo"</span>).innerHTML += myObj[x] + <span class="hljs-string">"&lt;br&gt;"</span>;<br>&#125;<br></code></pre></td></tr></table></figure><h3 id="6-嵌套对象"><a href="#6-嵌套对象" class="headerlink" title="6. 嵌套对象"></a>6. 嵌套对象</h3><p>1）json对象中可以包含另外一个json对象<br>2）使用”.”或”[]”来访问嵌套的json对象</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs javascript">myObj = &#123;<br><span class="hljs-string">"name"</span>:<span class="hljs-string">"runoob"</span>,<br><span class="hljs-string">"alexa"</span>:<span class="hljs-number">10000</span>,<br><span class="hljs-string">"sites"</span>: &#123;<br><span class="hljs-string">"site1"</span>:<span class="hljs-string">"www.runoob.com"</span>,<br><span class="hljs-string">"site2"</span>:<span class="hljs-string">"m.runoob.com"</span>,<br><span class="hljs-string">"site3"</span>:<span class="hljs-string">"c.runoob.com"</span><br>&#125;<br>&#125;<br>x = myObj.sites.site1;<br><span class="hljs-comment">// 或者</span><br>x = myObj.sites[<span class="hljs-string">"site1"</span>];<br></code></pre></td></tr></table></figure><h3 id="7-删除对象属性"><a href="#7-删除对象属性" class="headerlink" title="7. 删除对象属性"></a>7. 删除对象属性</h3><p>1）使用delete关键字<br>2）删除一对key/value</p><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">delete</span> myObj.sites.site1;<br></code></pre></td></tr></table></figure><h3 id="8-数组作为json对象"><a href="#8-数组作为json对象" class="headerlink" title="8. 数组作为json对象"></a>8. 数组作为json对象</h3><p>1）json 数组在中括号中书写<br>2）json 中数组值必须是合法的 json 数据类型<br>注：js 中，数组值可以是 json 数据类型，也可以是 js 的表达式，包括函数，日期及undefined。<br>3）使用delete关键字删除数组元素，删除之后位置保留，即数组长度不变</p><h3 id="9-其他"><a href="#9-其他" class="headerlink" title="9. 其他"></a>9. 其他</h3><p>JSON.parse()<br>1）json 通常用于与服务端交换数据<br>2）在接收服务器数据时一般是字符串，可以使用JSON.parse()方法将数据转换为js对象。<br>3）语法：<br>JSON.parse(text[,reviver])</p><p>参数说明：<br>text: 必须，一个有效的JSON字符串。<br>reviver: 可选，一个转换结果的函数，将为对象的每个成员调用此函数。</p><p>JSON.stringify()<br>1）向服务器发送数据时一般是字符串，使用JSON.stringify()方法将js对象转换为字符串<br>2）语法：<br>JSON.stringify(value[,replacer[,space]])</p><p>参数说明：<br>        value: 必需，一个有效的JSON字符串。<br>        replacer: 可选，用于转换结果的函数或数组。如果 replacer 为函数，则 JSON.stringify 将调用该函数，并传入每个成员的键和值。使用返回值而不是原始值。如果此函数返回 undefined，则排除成员。根对象的键是一个空字符串：””。<br>        如果 replacer 是一个数组，则仅转换该数组中具有键值的成员。成员的转换顺序与键在数组中的顺序一样。当 value 参数也为数组时，将忽略 replacer 数组。<br>        space: 可选，文本添加缩进、空格和换行符，如果 space 是一个数字，则返回值文本在每个级别缩进指定数目的空格，如果 space 大于 10，则文本缩进 10 个空格。space 有可以使用非数字，如：\t。<br>实例:<br>var obj = { “name”:”runoob”, “alexa”:10000, “site”:”<a href="http://www.runoob.com&quot;}" target="_blank" rel="noopener">www.runoob.com&quot;}</a>;<br>var myJSON = JSON.stringify(obj);<br>document.getElementById(“demo”).innerHTML = myJSON;</p><p>3）JSON 不允许包含函数，JSON.stringify() 会删除 JavaScript 对象的函数，包括 key 和 value。<br>可以在执行 JSON.stringify() 函数前将函数转换为字符串来避免以上问题的发生：<br>实例：<br>var obj = { “name”:”Runoob”, “alexa”:function () {return 10000;}, “site”:”<a href="http://www.runoob.com&quot;}" target="_blank" rel="noopener">www.runoob.com&quot;}</a>;<br>obj.alexa = obj.alexa.toString();<br>var myJSON = JSON.stringify(obj);<br>document.getElementById(“demo”).innerHTML = myJSON;</p><h2 id="JSON文件"><a href="#JSON文件" class="headerlink" title="JSON文件"></a>JSON文件</h2><p>1）json 文件的文件类型是 “.json”<br>2）json 文本的MIME类型是 “application/json”</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;JSON-JavaScript-Object-Notation&quot;&gt;&lt;a href=&quot;#JSON-JavaScript-Object-Notation&quot; class=&quot;headerlink&quot; title=&quot;JSON - JavaScript Object Notat
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>activeMQ</title>
+    <link href="http://kisia.cn/2020/07/04/activeMQ/"/>
+    <id>http://kisia.cn/2020/07/04/activeMQ/</id>
+    <published>2020-07-04T06:52:09.000Z</published>
+    <updated>2020-07-04T06:54:06.073Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>默认账号密码 admin/admin</p><h3 id="docker方式"><a href="#docker方式" class="headerlink" title="docker方式"></a>docker方式</h3><p>61616是activemq的容器使用端口（映射为6161），8161是web页面管理端口（对外映射为8162）</p><figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker run -d --name myactivemq -p 6161:61616 -p 8162:8161 docker.io/webcenter/activemq:latest<br></code></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;安装&quot;&gt;&lt;a href=&quot;#安装&quot; class=&quot;headerlink&quot; title=&quot;安装&quot;&gt;&lt;/a&gt;安装&lt;/h2&gt;&lt;p&gt;默认账号密码 admin/admin&lt;/p&gt;
+&lt;h3 id=&quot;docker方式&quot;&gt;&lt;a href=&quot;#docker方式&quot; class=&quot;he
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>maven</title>
+    <link href="http://kisia.cn/2020/07/03/maven/"/>
+    <id>http://kisia.cn/2020/07/03/maven/</id>
+    <published>2020-07-03T10:20:24.000Z</published>
+    <updated>2020-07-03T10:20:59.794Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="打包跳过测试"><a href="#打包跳过测试" class="headerlink" title="打包跳过测试"></a>打包跳过测试</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">-Dmaven.test.skip=true<br></code></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;打包跳过测试&quot;&gt;&lt;a href=&quot;#打包跳过测试&quot; class=&quot;headerlink&quot; title=&quot;打包跳过测试&quot;&gt;&lt;/a&gt;打包跳过测试&lt;/h3&gt;&lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gut
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>docker</title>
+    <link href="http://kisia.cn/2020/07/03/docker/"/>
+    <id>http://kisia.cn/2020/07/03/docker/</id>
+    <published>2020-07-03T05:38:09.000Z</published>
+    <updated>2020-07-03T05:39:27.982Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="进入docker"><a href="#进入docker" class="headerlink" title="进入docker"></a>进入docker</h3><figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker exec -it [containerID] /bin/bash<br>exit<br></code></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;进入docker&quot;&gt;&lt;a href=&quot;#进入docker&quot; class=&quot;headerlink&quot; title=&quot;进入docker&quot;&gt;&lt;/a&gt;进入docker&lt;/h3&gt;&lt;figure class=&quot;highlight shell&quot;&gt;&lt;figcaption&gt;&lt;span
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>elasticsearch</title>
+    <link href="http://kisia.cn/2020/07/02/elasticsearch/"/>
+    <id>http://kisia.cn/2020/07/02/elasticsearch/</id>
+    <published>2020-07-02T12:45:07.000Z</published>
+    <updated>2020-07-03T02:44:29.264Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="使用-elasticsearch-head-连接-elasticsearch"><a href="#使用-elasticsearch-head-连接-elasticsearch" class="headerlink" title="使用 elasticsearch-head 连接 elasticsearch"></a>使用 elasticsearch-head 连接 elasticsearch</h2><h3 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h3><ol><li>git 工程<br><a href="https://github.com/mobz/elasticsearch-head" target="_blank" rel="noopener">elasticsearch-head</a></li><li>使用docker<figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker pull mobz/elasticsearch-head:5<br>docker run -d -p 9100:9100 docker.io/mobz/elasticsearch-head:5<br></code></pre></td></tr></table></figure><h3 id="elasticsearch-中修改-config-slasticsearch-yml"><a href="#elasticsearch-中修改-config-slasticsearch-yml" class="headerlink" title="elasticsearch 中修改 config/slasticsearch.yml"></a>elasticsearch 中修改 config/slasticsearch.yml</h3><figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash">allow origin</span><br>http.cors.enabled: true<br>http.cors.allow-origin: "*"<br></code></pre></td></tr></table></figure><h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3>访问 ip:9100<br>在其中输入 es 地址即可使用</li></ol><h2 id="使用-1"><a href="#使用-1" class="headerlink" title="使用"></a>使用</h2><h3 id="查看-index-下数据"><a href="#查看-index-下数据" class="headerlink" title="查看 index 下数据"></a>查看 index 下数据</h3><figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">http://192.168.51.86:9200/jingqing_table_index/_search?pretty<br></code></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;使用-elasticsearch-head-连接-elasticsearch&quot;&gt;&lt;a href=&quot;#使用-elasticsearch-head-连接-elasticsearch&quot; class=&quot;headerlink&quot; title=&quot;使用 elasticsearch
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
   
   <entry>
     <title>base64 coding principle</title>
@@ -45,15 +179,15 @@
     <link href="http://kisia.cn/2020/06/21/linux/"/>
     <id>http://kisia.cn/2020/06/21/linux/</id>
     <published>2020-06-21T05:55:08.000Z</published>
-    <updated>2020-06-26T04:09:45.198Z</updated>
+    <updated>2020-07-03T05:49:28.260Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="gt-amp-gt-gt"><a href="#gt-amp-gt-gt" class="headerlink" title="&gt; &amp; &gt;&gt;"></a><code>&gt;</code> &amp; <code>&gt;&gt;</code></h3><p><code>&gt;</code> is used to override file, if file not exist, it will auto create. actually it creates a file every time and then replace the origin file.<br><code>&gt;&gt;</code> is used to append th file.</p><h3 id="sed"><a href="#sed" class="headerlink" title="sed"></a><code>sed</code></h3><p><code>sed</code> is used to handle txt.</p><figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">sed [-hnV] [-e&lt;script&gt;] [-f&lt;script&gt;] [txt]<br></code></pre></td></tr></table></figure><ul><li>modify <code>sed -i &#39;s/jingqing-mt-[a-z]:/jingqing-mt:/g&#39; /data/operations/dockertars/jingqing-mt-st.k8s.yaml</code></li></ul><h3 id="if"><a href="#if" class="headerlink" title="if"></a>if</h3><figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs shell">if [command]<br>then<br>    script<br>elif [command]<br>    script<br>else<br>    script<br>fi<br></code></pre></td></tr></table></figure><h4 id="file-category-exist"><a href="#file-category-exist" class="headerlink" title="file/category exist"></a>file/category exist</h4><p>[]</p>]]></content>
+    <content type="html"><![CDATA[<h3 id="history"><a href="#history" class="headerlink" title="history"></a>history</h3><p>history [n] 查看最近 n 个命令<br>history [-c] 清除所有 history 内容<br>history [-raw] histfiles<br>-r 将 histfiles 的内容读到当前 history 中<br>-a 将目前新增的 history 指令新增到 histfiles 中，若没有加 histfiles，则写入 ~/.bash_history<br>-w 将目前 history 内容写入 histfiles</p><blockquote><p>linux 系统当你在 shell(控制台) 中输入并执行命令时，会自动把你的命令记录到历史列表中，一般保存在用户目录下的.bash_history中，默认保存1000条(可修改)</p></blockquote><h4 id="运行特定的历史命令"><a href="#运行特定的历史命令" class="headerlink" title="运行特定的历史命令"></a>运行特定的历史命令</h4><p>[!number] [!command] [!!]<br>number 第 number 个指令<br>command 指令的开头 command 个字母<br>! 上一个指令</p><h3 id="gt-amp-gt-gt"><a href="#gt-amp-gt-gt" class="headerlink" title="&gt; &amp; &gt;&gt;"></a><code>&gt;</code> &amp; <code>&gt;&gt;</code></h3><p><code>&gt;</code> is used to override file, if file not exist, it will auto create. actually it creates a file every time and then replace the origin file.<br><code>&gt;&gt;</code> is used to append th file.</p><h3 id="sed"><a href="#sed" class="headerlink" title="sed"></a><code>sed</code></h3><p><code>sed</code> is used to handle txt.</p><figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">sed [-hnV] [-e&lt;script&gt;] [-f&lt;script&gt;] [txt]<br></code></pre></td></tr></table></figure><ul><li>modify <code>sed -i &#39;s/jingqing-mt-[a-z]:/jingqing-mt:/g&#39; /data/operations/dockertars/jingqing-mt-st.k8s.yaml</code></li></ul><h3 id="if"><a href="#if" class="headerlink" title="if"></a>if</h3><figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs shell">if [command]<br>then<br>    script<br>elif [command]<br>    script<br>else<br>    script<br>fi<br></code></pre></td></tr></table></figure><h4 id="file-category-exist"><a href="#file-category-exist" class="headerlink" title="file/category exist"></a>file/category exist</h4><p>[]</p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;h3 id=&quot;gt-amp-gt-gt&quot;&gt;&lt;a href=&quot;#gt-amp-gt-gt&quot; class=&quot;headerlink&quot; title=&quot;&amp;gt; &amp;amp; &amp;gt;&amp;gt;&quot;&gt;&lt;/a&gt;&lt;code&gt;&amp;gt;&lt;/code&gt; &amp;amp; &lt;code&gt;&amp;gt;&amp;gt;&lt;/cod
+        &lt;h3 id=&quot;history&quot;&gt;&lt;a href=&quot;#history&quot; class=&quot;headerlink&quot; title=&quot;history&quot;&gt;&lt;/a&gt;history&lt;/h3&gt;&lt;p&gt;history [n] 查看最近 n 个命令&lt;br&gt;history [-c] 清除所有 histor
       
     
     </summary>
