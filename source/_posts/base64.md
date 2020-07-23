@@ -4,7 +4,7 @@ date: 2020-06-26 11:09:52
 subtitle: 
 categories: 
 tags: base64
-cover: http://b-ssl.duitang.com/uploads/item/201601/29/20160129201251_4uiQa.jpeg
+cover: https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1595491150514&di=757159a71ec5d113a449b3264cf3fbb0&imgtype=0&src=http%3A%2F%2Fattachments.gfan.com%2Fforum%2Fattachments2%2F201304%2F14%2F181933zt78tn7qn1ptqn4p.jpg
 ---
 
 ## background
