@@ -141,13 +141,122 @@
 </ol>
 <figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash"> allow origin 设置允许跨域</span><br>http.cors.enabled: true<br>http.cors.allow-origin: "*"<br></code></pre></td></tr></table></figure>
 <h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><p>访问 ip:9100<br>在其中输入 es 地址即可使用</p>
-<h2 id="使用-1"><a href="#使用-1" class="headerlink" title="使用"></a>使用</h2><h3 id="查看-index-下数据"><a href="#查看-index-下数据" class="headerlink" title="查看 index 下数据"></a>查看 index 下数据</h3><figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">http://192.168.51.86:9200/jingqing_table_index/_search?pretty<br></code></pre></td></tr></table></figure>
+<h2 id="使用-——-Rest风格API"><a href="#使用-——-Rest风格API" class="headerlink" title="使用  —— Rest风格API"></a>使用  —— Rest风格API</h2><table>
+<thead>
+<tr>
+<th>method</th>
+<th>url</th>
+<th>describe</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>PUT</td>
+<td>host:port/index/type/id</td>
+<td>创建文档（指定文档id）</td>
+</tr>
+<tr>
+<td>POST</td>
+<td>host:port/index/type</td>
+<td>创建文档</td>
+</tr>
+<tr>
+<td>POST</td>
+<td>host:port/index/id/_update</td>
+<td>更新文档</td>
+</tr>
+<tr>
+<td>DELETE</td>
+<td>host:port/index/type/id</td>
+<td>删除文档</td>
+</tr>
+<tr>
+<td>GET</td>
+<td>host:port/index/type/id</td>
+<td>查询文档</td>
+</tr>
+<tr>
+<td>POST</td>
+<td>host:port/index/type/_search</td>
+<td>查询所有文档</td>
+</tr>
+</tbody></table>
+<h3 id="创建索引"><a href="#创建索引" class="headerlink" title="创建索引"></a>创建索引</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs bash">PUT /<span class="hljs-built_in">test</span><br>&#123;<br>	<span class="hljs-string">"mappings"</span>: &#123;<br>		<span class="hljs-string">"properties"</span>: &#123;<br>			<span class="hljs-string">"name"</span>: &#123;<br>				<span class="hljs-string">"type"</span>: <span class="hljs-string">"text"</span><br>			&#125;,<br>			<span class="hljs-string">"age"</span>: &#123;<br>				<span class="hljs-string">"type"</span>: <span class="hljs-string">"long"</span><br>			&#125;,<br>			<span class="hljs-string">"birthday"</span>: &#123;<br>				<span class="hljs-string">"type"</span>: <span class="hljs-string">"text"</span><br>			&#125;<br>		&#125;<br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="添加文档"><a href="#添加文档" class="headerlink" title="添加文档"></a>添加文档</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs bash">PUT /<span class="hljs-built_in">test</span>/type1/1<br>&#123;<br>	<span class="hljs-string">"name"</span>: <span class="hljs-string">"kisia"</span>,<br>	<span class="hljs-string">"age"</span>: 1,<br>	<span class="hljs-string">"birthday"</span>: <span class="hljs-string">"19960201"</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="更新文档"><a href="#更新文档" class="headerlink" title="更新文档"></a>更新文档</h3><ol>
+<li><p>方法一：同添加数据——会覆盖所有之前的数据</p>
+</li>
+<li><p>方法二：只会更新对应字段</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs awk">POST <span class="hljs-regexp">/test/</span>type1<span class="hljs-regexp">/1/</span>_update<br>&#123;<br>	<span class="hljs-string">"doc"</span>: &#123;<br>		<span class="hljs-string">"name"</span>: <span class="hljs-string">"kivi"</span><br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>按条件更新</p>
+<figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs shell">http://192.168.51.176:9200/jingqing_table_index/_update_by_query<br>&#123;<br>    "script": &#123;<br>        "source": "ctx._source['column_xx']=null"<br>    &#125;,<br>    "query": &#123;<br>        "match_phrase": &#123;<br>            "column_xx": "content_xx"<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+</li>
+</ol>
+<h3 id="查询文档"><a href="#查询文档" class="headerlink" title="查询文档"></a>查询文档</h3><figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">http://192.168.51.86:9200/jingqing_table_index/_search?pretty<br></code></pre></td></tr></table></figure>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs routeros"><span class="hljs-builtin-name">GET</span> test/type1/_search?<span class="hljs-attribute">q</span>=name:ki<br></code></pre></td></tr></table></figure>
 
 
 
+<h4 id="查询为-null-的数据"><a href="#查询为-null-的数据" class="headerlink" title="查询为 null 的数据"></a>查询为 null 的数据</h4><figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs shell">POST index/type/_search <br>&#123;<br>  "query": &#123;<br>    "bool": &#123;<br>      "must_not": &#123;<br>        "exists": &#123;<br>          "field": "字段名"<br>        &#125;<br>      &#125;<br>    &#125;<br>  &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h4 id="精准查询"><a href="#精准查询" class="headerlink" title="精准查询"></a>精准查询</h4><figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs shell">http://192.168.51.176:9200/jingqing_table_index/_search<br>&#123;<br>    "query": &#123;<br>        "match_phrase": &#123;<br>            "column_xx": "content_xx"<br>        &#125;<br>    &#125;,<br>    "from": 0,<br>    "size": 20<br>&#125;<br></code></pre></td></tr></table></figure>
+<h4 id="返回指定字段"><a href="#返回指定字段" class="headerlink" title="返回指定字段"></a>返回指定字段</h4><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs routeros"><span class="hljs-builtin-name">GET</span> test/_search<br>&#123;<br>	<span class="hljs-string">"query"</span>: &#123;<br>		<span class="hljs-string">"match"</span>: &#123;<br>			<span class="hljs-string">"name"</span>: <span class="hljs-string">"kisia"</span><br>		&#125;<br>	&#125;,<br>	<span class="hljs-string">"_source"</span>: [<span class="hljs-string">"name"</span>]<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h4 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h4><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs routeros"><span class="hljs-builtin-name">GET</span> test/_search<br>&#123;<br>	<span class="hljs-string">"query"</span>: &#123;<br>		<span class="hljs-string">"match"</span>: &#123;<br>			<span class="hljs-string">"name"</span>: <span class="hljs-string">"kisia"</span><br>		&#125;<br>	&#125;,<br>	<span class="hljs-string">"sort"</span>: [&#123;<br>		<span class="hljs-string">"age"</span>: &#123;<br>			<span class="hljs-string">"order"</span>: <span class="hljs-string">"desc"</span><br>		&#125;<br>	&#125;]<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h4 id="分页"><a href="#分页" class="headerlink" title="分页"></a>分页</h4><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs routeros"><span class="hljs-builtin-name">GET</span> test/_search<br>&#123;<br>	<span class="hljs-string">"query"</span>: &#123;<br>		<span class="hljs-string">"match"</span>: &#123;<br>			<span class="hljs-string">"name"</span>: <span class="hljs-string">"kisia"</span><br>		&#125;<br>	&#125;,<br>	<span class="hljs-string">"from"</span>: 0,<br>	<span class="hljs-string">"size"</span>: 1<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+
+<h3 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h3><h4 id="属性说明"><a href="#属性说明" class="headerlink" title="属性说明"></a>属性说明</h4><table>
+<thead>
+<tr>
+<th>属性</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>_score</td>
+<td>匹配度</td>
+</tr>
+<tr>
+<td>max_score</td>
+<td>最大分值</td>
+</tr>
+<tr>
+<td>version</td>
+<td>更新次数</td>
+</tr>
+<tr>
+<td>relation</td>
+<td>匹配关系，eq - equals</td>
+</tr>
+</tbody></table>
 <h2 id="使用kibana"><a href="#使用kibana" class="headerlink" title="使用kibana"></a>使用kibana</h2><h3 id="启动-1"><a href="#启动-1" class="headerlink" title="启动"></a>启动</h3><p>docker方式</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">docker run --name kibana -e ELASTICSEARCH_URL=http://172.16.0.9:9200 -p 5601:5601 -d kibana:6.5.0<br></code></pre></td></tr></table></figure>
 
+<h2 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h2><h3 id="Elasticsearch-exception-type-search-phase-execution-exception-reason-all-shards-failed"><a href="#Elasticsearch-exception-type-search-phase-execution-exception-reason-all-shards-failed" class="headerlink" title="Elasticsearch exception [type=search_phase_execution_exception, reason=all shards failed]"></a>Elasticsearch exception [type=search_phase_execution_exception, reason=all shards failed]</h3><p>curl “<a href="http://192.168.51.176:9200/jingqing_table_index/_search?size=10&amp;from=10000&quot;" target="_blank" rel="noopener">http://192.168.51.176:9200/jingqing_table_index/_search?size=10&amp;from=10000&quot;</a></p>
+<p><strong>报错信息</strong></p>
+<blockquote>
+<p>{“error”:{“root_cause”:[{“type”:”query_phase_execution_exception”,”reason”:”Result window is too large, from + size must be less than or equal to: [10000] but was [10010]. See the scroll api for a more efficient way to request large data sets. This limit can be set by changing the [index.max_result_window] index level setting.”}],”type”:”search_phase_execution_exception”,”reason”:”all shards failed”,”phase”:”query”,”grouped”:true,”failed_shards”:[{“shard”:0,”index”:”jingqing_table_index”,”node”:”z6eictcOSyOmyHNJw9pEmA”,”reason”:{“type”:”query_phase_execution_exception”,”reason”:”Result window is too large, from + size must be less than or equal to: [10000] but was [10010]. See the scroll api for a more efficient way to request large data sets. This limit can be set by changing the [index.max_result_window] index level setting.”}}]},”status”:500}</p>
+</blockquote>
+<p><strong>解决方法</strong></p>
+<figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell">curl -XPUT "http://192.168.51.176:9200/jingqing_table_index/_settings" -H 'Content-Type: application/json' -d'<br>&#123; <br>  "max_result_window" : 100000000<br>&#125;'<br></code></pre></td></tr></table></figure>
+
+<h3 id="Fielddata-is-disabled-on-text-fields-by-default-Set-fielddata-true-on-xzqhdm-in-order-to-load-fielddata-in-memory-by-uninverting-the-inverted-index-Note-that-this-can-however-use-significant-memory-Alternatively-use-a-keyword-field-instead"><a href="#Fielddata-is-disabled-on-text-fields-by-default-Set-fielddata-true-on-xzqhdm-in-order-to-load-fielddata-in-memory-by-uninverting-the-inverted-index-Note-that-this-can-however-use-significant-memory-Alternatively-use-a-keyword-field-instead" class="headerlink" title="Fielddata is disabled on text fields by default. Set fielddata=true on [xzqhdm] in order to load fielddata in memory by uninverting the inverted index. Note that this can however use significant memory. Alternatively use a keyword field instead."></a>Fielddata is disabled on text fields by default. Set fielddata=true on [xzqhdm] in order to load fielddata in memory by uninverting the inverted index. Note that this can however use significant memory. Alternatively use a keyword field instead.</h3><p>PUT <a href="http://192.168.51.176:9200/jingqing_table_index_hottool/_mapping/doc" target="_blank" rel="noopener">http://192.168.51.176:9200/jingqing_table_index_hottool/_mapping/doc</a><br>{<br>  “properties”:{<br>    “keyword”:{<br>      “type”:”text”,<br>      “fielddata”:true<br>    }<br>  }<br>}</p>
+<h1 id="String-gt-List"><a href="#String-gt-List" class="headerlink" title="String -&gt; List"></a>String -&gt; List</h1><p><a href="http://192.168.51.176:9200/jingqing_table_index_hottool/_update_by_query?conflicts=proceed" target="_blank" rel="noopener">http://192.168.51.176:9200/jingqing_table_index_hottool/_update_by_query?conflicts=proceed</a><br>{<br>  “script”: {<br>    “source”: “if(ctx._source[‘keyword’] instanceof String){String s=ctx._source[‘keyword’];ArrayList array=new ArrayList();if(!s.isEmpty()){String splitter = ‘,’;StringTokenizer tokenValue = new StringTokenizer(s, splitter);while (tokenValue.hasMoreTokens()) {array.add(tokenValue.nextToken());}}ctx._source.keyword=array;}”<br>  }<br>}</p>
+<h3 id="Linux-下启动"><a href="#Linux-下启动" class="headerlink" title="Linux 下启动"></a>Linux 下启动</h3><ul>
+<li>跨域时需要需改<code>network.host: 0.0.0.0</code>，然后依次解决错误</li>
+<li><code>Xms</code>和<code>Xmx</code>需配置相同</li>
+<li>后台启动<code>es</code>：<code>./elasticsearch -d</code></li>
+<li>后台启动<code>kibana</code>：<code>nohup ./kibana &amp;</code></li>
+<li>启动时需要使用非root用户<figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs shell">groupadd elsearch<br>useradd elsearch -g elsearch<br>passwd elsearch# 接下来会输入两次密码<br><span class="hljs-meta">#</span><span class="bash"> new password</span><br><span class="hljs-meta">#</span><span class="bash"> retype passwd</span><br><br>cd path<br>chown -R elsearch:elsearch es/elasticsearch-7.6.1/<br><br>su elsearch<br></code></pre></td></tr></table></figure></li>
+<li><code>kibana</code>外网访问<figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">vim /etc/kibana/kibana.yml <br>server.host: "0.0.0.0"<br></code></pre></td></tr></table></figure>
+
+</li>
+</ul>
 
       </section>
 

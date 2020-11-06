@@ -131,6 +131,14 @@
       <section class="article-entry">
         <h3 id="mac使用谷歌浏览器跨域访问"><a href="#mac使用谷歌浏览器跨域访问" class="headerlink" title="mac使用谷歌浏览器跨域访问"></a>mac使用谷歌浏览器跨域访问</h3><p>创建目录(随便创建，创建后指定该目录即可)<br><code>/Users/LeoLee/Documents/MyChromeDevUserData</code><br>输入命令打开浏览器</p>
 <figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">open -n /Applications/Google\ Chrome.app/ --args --disable-web-security  --user-data-dir=/Users/LeoLee/Documents/MyChromeDevUserData<br></code></pre></td></tr></table></figure>
+
+<h3 id="查看ip地址"><a href="#查看ip地址" class="headerlink" title="查看ip地址"></a>查看ip地址</h3><figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">ifconfig | grep "inet"<br></code></pre></td></tr></table></figure>
+
+<h3 id="安装-brew"><a href="#安装-brew" class="headerlink" title="安装 brew"></a>安装 brew</h3><ol>
+<li>修改hosts<br>访问 <code>https://githubusercontent.com.ipaddress.com/raw.githubusercontent.com</code><br>获取 <code>raw.githubusercontent.com</code> 的ip并添加至hosts文件<figure class="highlight shell"><figcaption><span>script</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"<br></code></pre></td></tr></table></figure>
+</li>
+</ol>
+
       </section>
 
       <section class="article-footer">
@@ -141,6 +149,19 @@
         
 <nav class="card-container card-article-nav">
   <div class="card-wrap">
+    
+      <div id="article-nav-newer" class="card-item">
+        <article>
+          
+          <a class="card-link article-nav-link" href="/2020/08/17/jenkins/"></a>
+          <strong class="article-nav-caption">Newer</strong>
+          <p class="article-nav-title">
+            
+              jenkins
+            
+          </p>
+        </article>
+      </div>
     
     
       <div id="article-nav-older" class="card-item img">
