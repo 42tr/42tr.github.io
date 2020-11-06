@@ -13,3 +13,16 @@ cover: https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=15954
 ```shell script
 open -n /Applications/Google\ Chrome.app/ --args --disable-web-security  --user-data-dir=/Users/LeoLee/Documents/MyChromeDevUserData
 ```
+
+### 查看ip地址
+```shell script
+ifconfig | grep "inet"
+```
+
+### 安装 brew
+1. 修改hosts
+访问 `https://githubusercontent.com.ipaddress.com/raw.githubusercontent.com`
+获取 `raw.githubusercontent.com` 的ip并添加至hosts文件
+```shell script
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+```

@@ -10,3 +10,6 @@ cover: https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=15954
 ```css
 height:calc(100% - 20px);
 ```
+
+### float 导致父元素无法计算高度
+在父元素上添加样式`overflow:hidden`
