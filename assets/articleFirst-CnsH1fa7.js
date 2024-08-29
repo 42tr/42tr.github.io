@@ -1,0 +1,1 @@
+import{c as o,o as t,F as n,a as e,E as c}from"./main-runtime-dom.esm-bundler-CKVwTjQ9.js";import{_ as s}from"./main-_plugin-vue_export-helper-DlAUqK2U.js";const a={},r=e("h1",null,"第一篇文章",-1),_=e("h2",null,"关于本站",-1),l=e("p",null,"一直没有满意的写文章的地方，所有应用都有些无法满足要求的点，不如自己写一个~",-1);function p(i,u){return t(),o(n,null,[r,_,l],64)}const m=s(a,[["render",p]]);c(m).mount("#app");
