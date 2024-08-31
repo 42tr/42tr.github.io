@@ -17,7 +17,7 @@ hljs.registerLanguage('typescript', typescript)
     <p>使用 <a target="_blank" href="https://busuanzi.ibruce.info/">不蒜子</a></p>
     <h3>允许被搜索引擎爬取</h3>
     <p>根目录设置 robots.txt</p>
-    <p>google：判断是否被索引：搜索 site:42tr.github.io，未被索引会提示使用 <a href="https://search.google.com/search-console?resource_id=https%3A%2F%2F42tr.github.io%2F" target="_blank">google search consoloe</a>，验证网站所有权，添加站点地图 <a href="https://42tr.github.io/sitemap.xml">sitemap.xml</a>，完成后过一天再看。</p>
+    <p>google：判断是否被索引：搜索 site:42tr.github.io，未被索引会提示使用 <a href="https://search.google.com/search-console?resource_id=https%3A%2F%2F42tr.github.io%2F" target="_blank">google search consoloe</a>，验证网站所有权，添加站点地图 <a href="https://42tr.github.io/sitemap.xml">sitemap.xml</a>，完成后过一天再看，过了一天似乎不行...</p>
     <h2>开发中遇到的问题</h2>
     <h3>打包发布到 github.io 的文件无法加载</h3>
     <p>问题原因：打包后生成的文件名以下划线开头，无法返回。</p>
