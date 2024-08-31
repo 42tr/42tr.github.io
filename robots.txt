@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: 
+Sitemap: https://42tr.github.io/sitemap.xml
