@@ -24,7 +24,7 @@ import Avatar from '../../assets/avatar.jpg'
                 <template #icon>
                     <n-icon><Phone /></n-icon>
                 </template>
-                +86-189****1530
+                +86-18936861530
             </n-button>
             <n-button size="small" :bordered="false">
                 <template #icon>

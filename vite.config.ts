@@ -12,7 +12,8 @@ export default defineConfig({
           main: resolve(__dirname, 'index.html'),
           resume: resolve(__dirname, 'resume/zh/index.html'),
           resumeEn: resolve(__dirname, 'resume/en/index.html'),
-          articleFirst: resolve(__dirname, 'article/first/index.html')
+          articleFirst: resolve(__dirname, 'article/first/index.html'),
+          designPattern: resolve(__dirname, 'design-pattern/index.html'),
        },
        output: {
         chunkFileNames: `assets/main-[name]-[hash].js`, // 不能下划线开头，增加一个 main 前缀
