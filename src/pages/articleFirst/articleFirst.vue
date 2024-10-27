@@ -9,7 +9,7 @@ hljs.registerLanguage('yaml', yaml)
 </script>
 
 <template>
-    <h1>第一篇文章</h1>
+    <h1>小破站的第一篇文章</h1>
     <h2>关于本站</h2>
     <p>一直没有满意的写文章的地方，所有应用都有些无法满足要求的点，不如自己写一个~</p>
     <h2>实现</h2>

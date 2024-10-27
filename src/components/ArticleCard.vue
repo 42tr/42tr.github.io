@@ -4,7 +4,7 @@ import { NCard } from 'naive-ui'
 
 <template>
     <div>
-        <NCard title="第一篇文章" hoverable class="article-card" header-style="color: white">
+        <NCard title="小破站的第一篇文章" hoverable class="article-card" header-style="color: white">
             <template #header-extra>
             2024-08-28
             </template>

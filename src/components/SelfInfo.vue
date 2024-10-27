@@ -21,20 +21,20 @@ defineProps<{
             </div>
             <div style="display: flex; align-items: center; flex-direction: column;">
                 <div style="margin-top: 60px; text-align: center; font-weight: 700; color: aliceblue; font-size: 20px; line-height: 1; margin-bottom: 5px;">42tr</div>
-                <!-- <div style="width: 100%; padding: 10px 20px; margin: 0; display: flex; flex-direction: row; flex-wrap: nowrap; cursor: pointer; text-align: center; align-items: center; justify-content: center;">
-                    <a style="margin: 0; margin-left: 8px; color: #f7f7fa; background-color: transparent; font-size: 1.4em; cursor: pointer; display: flex;">
-                        <i style="background: 0 0; color: #f7f7fa; transition: all .3s ease 0s; padding: 8px; border-radius: 32px; cursor: pointer; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;font-size: 22px; line-height: 1; font-style: normal; -webkit-font-smoothing: antialiased;">
+                <div style="width: 100%; padding: 10px 20px; margin: 0; display: flex; flex-direction: row; flex-wrap: nowrap; text-align: center; align-items: center; justify-content: center; z-index: 10;">
+                    <a style="margin: 0; margin-left: 8px; color: #f7f7fa; background-color: transparent; font-size: 1.4em; display: flex;" href="https://github.com/42tr" target="_blank">
+                        <i style="background: 0 0; color: #f7f7fa; transition: all .3s ease 0s; padding: 8px; border-radius: 32px; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;font-size: 22px; line-height: 1; font-style: normal; -webkit-font-smoothing: antialiased;">
                             <img src="../assets/github.svg" style="width: 100%; height: 100%;">
                         </i>
                     </a>
-                    <a style="margin: 0; margin-left: 8px; color: #f7f7fa; background-color: transparent; font-size: 1.4em; cursor: pointer; display: flex;">
-                        <i style="background: 0 0; color: #f7f7fa; transition: all .3s ease 0s; padding: 8px; border-radius: 32px; cursor: pointer; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;font-size: 22px; line-height: 1; font-style: normal; -webkit-font-smoothing: antialiased;">
+                    <a style="margin: 0; margin-left: 8px; color: #f7f7fa; background-color: transparent; font-size: 1.4em; display: flex;" href="https://www.yuque.com/kisia/mo9bhd" target="_blank">
+                        <i style="background: 0 0; color: #f7f7fa; transition: all .3s ease 0s; padding: 8px; border-radius: 32px; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;font-size: 22px; line-height: 1; font-style: normal; -webkit-font-smoothing: antialiased;">
                             <img src="../assets/yuque.svg" style="width: 100%; height: 100%;">
                         </i>
                     </a>
-                </div> -->
+                </div>
                 <!-- personality -->
-                <div class="personality">
+                <div class="personality" style="z-index: 5;">
                     <img src="../assets/intj-a.png" class="personality-img">
                     <div class="personality-text" style="bottom: 40px">
                         <a @click="openDrawer('/resume/en/')">resume</a> / <a @click="openDrawer('/resume/zh/')">简历</a>
