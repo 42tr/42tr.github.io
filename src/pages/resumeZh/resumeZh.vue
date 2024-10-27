@@ -1,7 +1,8 @@
 <script setup lang="ts">
-import { NAvatar, NIcon, NThing, NButton, NDivider, NTimeline, NTimelineItem, NSpace, NTag } from 'naive-ui'
+import { NAvatar, NIcon, NThing, NButton, NTimeline, NTimelineItem, NSpace, NTag } from 'naive-ui'
 import { Email, Phone, Location, LogoGithub, GenderMale } from '@vicons/carbon'
 import Avatar from '../../assets/avatar.jpg'
+import Intj from '../../assets/intj-a.png'
 </script>
 
 <template>
@@ -46,11 +47,10 @@ import Avatar from '../../assets/avatar.jpg'
             </n-button>
         </n-thing>
         <!-- header end -->
-        <n-divider />
         <!-- body start -->
         <h2>项目经历</h2>
         <n-timeline>
-            <n-timeline-item type="success" title="AI 软件开发工程师 | 华为" content="使用 RAG 帮助团队提高问题定位效率，从 es、mysql 以及其他系统中进行搜索后针对问题进行重排序并总结。其中多路召回重排序方法在公司内部申请专利成功，问题搜索准确率由50%提升至90%，获“数据通信研发部长奖-维护效率及能力提升奖”。">
+            <n-timeline-item type="success" title="AI 软件开发工程师 | 华为" content="使用 RAG 帮助团队提高问题定位效率，从 es、mysql 以及其他系统中进行搜索后针对问题进行重排序并总结。大幅优化 es 搜索效果，问题搜索准确率由50%提升至90%，其中多路召回重排序方法在公司内部申请专利成功，获“数据通信研发部长奖-维护效率及能力提升奖”。">
                 <template #footer>
                     2024.01 - Now
                     <n-space>
@@ -81,7 +81,7 @@ import Avatar from '../../assets/avatar.jpg'
                     </n-space>
                 </template>
             </n-timeline-item>
-            <n-timeline-item title="Java 开发工程师 | 睿企科技" content="使用公司算法部门提供的 NLP 等能力，编写大数据标准化处理模块，维护标准化处理流程，质态监管、热词雷达、自动报告等各个应用的后端设计与实现，对接其他公司，偶尔帮忙改改前端 bug & 写一些简单的管理页面。">
+            <n-timeline-item title="Java 开发工程师 | 睿企科技" content="使用公司算法部门提供的 NLP 等能力，维护公司内部的 ETL 工具，编写大数据标准化处理模块，维护标准化处理流程，质态监管、热词雷达、自动报告等各个应用的后端设计与实现。偶尔帮忙改改前端 bug & 写一些简单的管理页面。">
                 <template #footer>
                     2020.05 - 2021.07
                     <n-space>
@@ -112,7 +112,6 @@ import Avatar from '../../assets/avatar.jpg'
                 </template>
             </n-timeline-item>
         </n-timeline>
-        <n-divider />
         <h2>教育</h2>
         <n-timeline>
             <n-timeline-item title="软件工程-本科 | 电子科技大学" content="学习的主要课程：软件工程、计算机组成原理、计算机网络、嵌入式系统、数据结构与算法、机器视觉算法与应用、综合课程设计（人脸识别）。获得了英语四级证书和人民三等奖学金。">
@@ -121,6 +120,14 @@ import Avatar from '../../assets/avatar.jpg'
                 </template>
             </n-timeline-item>
         </n-timeline>
+        <h2>个人评价</h2>
+        <div style="text-indent:28px">
+            Web 全栈工程师，熟悉 linux 操作系统；学习、适应能力强，能迅速上手新项目、新语言；算法能力较强，能快速解决实际问题；持续集成部署能力较强，可协助提高团队开发效率；平时喜欢写一些工具提高工作效率。
+        </div>
         <!-- body end -->
+        <!-- intj -->
+        <div style="position: absolute; right: 0; top: 0; z-index: -10;">
+            <img :src="Intj" style="height: 90px;">
+        </div>
     </div>
 </template>

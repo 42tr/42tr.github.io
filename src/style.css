@@ -6,12 +6,13 @@
 * {
   font-family: 'bear';
   margin: 0;
-  box-sizing:border-box;
+  box-sizing: border-box;
 }
 
 a {
   color: white;
   text-decoration: none;
+  cursor: pointer;
 }
 
 .background {
