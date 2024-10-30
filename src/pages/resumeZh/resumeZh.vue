@@ -1,8 +1,12 @@
 <script setup lang="ts">
 import { NAvatar, NIcon, NThing, NButton, NTimeline, NTimelineItem, NSpace, NTag } from 'naive-ui'
-import { Email, Phone, Location, LogoGithub, GenderMale } from '@vicons/carbon'
+import { Email, Phone, Location, LogoGithub, GenderMale, Certificate } from '@vicons/carbon'
 import Avatar from '../../assets/avatar.jpg'
 import Intj from '../../assets/intj-a.png'
+import UESTC from '../../assets/uestc.svg'
+import asiainfo from '../../assets/asiainfo.ico'
+import Rich from '../../assets/rich.png'
+import Huawei from '../../assets/huawei.png'
 </script>
 
 <template>
@@ -45,12 +49,19 @@ import Intj from '../../assets/intj-a.png'
                 </template>
                 南京
             </n-button>
+            <n-button size="small" :bordered="false">
+                <template #icon>
+                    <n-icon><Certificate /></n-icon>
+                </template>
+                软考-软件设计师
+            </n-button>
         </n-thing>
         <!-- header end -->
         <!-- body start -->
         <h2>项目经历</h2>
         <n-timeline>
             <n-timeline-item type="success" title="AI 软件开发工程师 | 华为" content="使用 RAG 帮助团队提高问题定位效率，从 es、mysql 以及其他系统中进行搜索后针对问题进行重排序并总结。大幅优化 es 搜索效果，问题搜索准确率由50%提升至90%，其中多路召回重排序方法在公司内部申请专利成功，获“数据通信研发部长奖-维护效率及能力提升奖”。">
+                <template #icon><n-icon><img :src="Huawei" style="height: 16px; width: 16px;"></n-icon></template>
                 <template #footer>
                     2024.01 - Now
                     <n-space>
@@ -67,6 +78,7 @@ import Intj from '../../assets/intj-a.png'
                 </template>
             </n-timeline-item>
             <n-timeline-item title="软件开发工程师 | 华为" content="主要负责系统支撑工作，开发新版本需求，维护网上版本，出补丁解决发布版本bug，责任田主要为控制器上线、设备登录、补丁机制。作为 CIE，负责维护版本构建与补丁构建网站，提高版本构建效率 20% 以上，开发人员单次补丁构建时间由 5min 减少到 1min，大幅提升工作效率，自动化补丁归档，规范化补丁构建流程，提高补丁发布效率 30% 以上。作为 redis 的 PMC，负责 redis 归一与升级工作，获“redis 定制归一攻关激励团队奖”。工作之余，开发了多个应用提高团队开发与问题定位效率。">
+                <template #icon><n-icon><img :src="Huawei" style="height: 16px; width: 16px;"></n-icon></template>
                 <template #footer>
                     2021.09 - 2023.12
                     <n-space>
@@ -78,10 +90,17 @@ import Intj from '../../assets/intj-a.png'
                         <n-tag :bordered="false" round size="small">Go</n-tag>
                         <n-tag :bordered="false" round size="small">Python</n-tag>
                         <n-tag :bordered="false" round size="small">Redis</n-tag>
+                        <n-tag :bordered="false" round size="small">Rust</n-tag>
+                        <n-tag :bordered="false" round size="small">Jenkins</n-tag>
                     </n-space>
                 </template>
             </n-timeline-item>
             <n-timeline-item title="Java 开发工程师 | 睿企科技" content="使用公司算法部门提供的 NLP 等能力，维护公司内部的 ETL 工具，编写大数据标准化处理模块，维护标准化处理流程，质态监管、热词雷达、自动报告等各个应用的后端设计与实现。偶尔帮忙改改前端 bug & 写一些简单的管理页面。">
+                <template #icon>
+                    <n-icon>
+                        <img :src="Rich" style="height: 16px; width: 16px;">
+                    </n-icon>
+                </template>
                 <template #footer>
                     2020.05 - 2021.07
                     <n-space>
@@ -97,6 +116,11 @@ import Intj from '../../assets/intj-a.png'
                 </template>
             </n-timeline-item>
             <n-timeline-item title="Java 开发工程师 | 亚信科技" content="开发桌面应用和 Web 应用，帮助电信客服处理业务。维护内部平台，处理 API 权限、灰度发布、服务扩容与负载均衡等。其中，Web 应用使用 vita-plus 框架来适配每个省份对同一业务有不同需求的需要。">
+                <template #icon>
+                    <n-icon>
+                        <img :src="asiainfo" style="height: 16px; width: 16px;">
+                    </n-icon>
+                </template>
                 <template #footer>
                     2018.03 - 2020.05
                     <n-space>
@@ -115,6 +139,11 @@ import Intj from '../../assets/intj-a.png'
         <h2>教育</h2>
         <n-timeline>
             <n-timeline-item title="软件工程-本科 | 电子科技大学" content="学习的主要课程：软件工程、计算机组成原理、计算机网络、嵌入式系统、数据结构与算法、机器视觉算法与应用、综合课程设计（人脸识别）。获得了英语四级证书和人民三等奖学金。">
+                <template #icon>
+                    <n-icon>
+                        <img :src="UESTC" style="height: 16px; width: 16px;">
+                    </n-icon>
+                </template>
                 <template #footer>
                     2014.09 - 2018.06
                 </template>
