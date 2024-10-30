@@ -7,6 +7,10 @@ import UESTC from '../../assets/uestc.svg'
 import asiainfo from '../../assets/asiainfo.ico'
 import Rich from '../../assets/rich.png'
 import Huawei from '../../assets/huawei.png'
+
+const open = (url: any) => {
+  window.open(url, '_blank')
+}
 </script>
 
 <template>
@@ -37,7 +41,7 @@ import Huawei from '../../assets/huawei.png'
                 </template>
                 1055894396@qq.com
             </n-button>
-            <n-button size="small" :bordered="false">
+            <n-button size="small" :bordered="false" @click="open('https://github.com/42tr')">
                 <template #icon>
                     <n-icon><LogoGithub /></n-icon>
                 </template>
@@ -77,7 +81,7 @@ import Huawei from '../../assets/huawei.png'
                     </n-space>
                 </template>
             </n-timeline-item>
-            <n-timeline-item title="软件开发工程师 | 华为" content="主要负责系统支撑工作，开发新版本需求，维护网上版本，出补丁解决发布版本bug，责任田主要为控制器上线、设备登录、补丁机制。作为 CIE，负责维护版本构建与补丁构建网站，提高版本构建效率 20% 以上，开发人员单次补丁构建时间由 5min 减少到 1min，大幅提升工作效率，自动化补丁归档，规范化补丁构建流程，提高补丁发布效率 30% 以上。作为 redis 的 PMC，负责 redis 归一与升级工作，获“redis 定制归一攻关激励团队奖”。工作之余，开发了多个应用提高团队开发与问题定位效率。">
+            <n-timeline-item title="软件开发工程师 | 华为" content="主要负责系统支撑工作，开发新版本需求，维护网上版本，出补丁解决发布版本bug，责任田主要为控制器上线、设备登录、补丁机制，同时负责给他人 review 代码。作为 CIE，负责维护版本构建与补丁构建网站，提高版本构建效率 20% 以上，开发人员单次补丁构建时间由 5min 减少到 1min，大幅提升工作效率，自动化补丁归档，规范化补丁构建流程，提高补丁发布效率 30% 以上。作为 redis 的 PMC，负责 redis 归一与升级工作，获“redis 定制归一攻关激励团队奖”。工作之余，开发了多个应用提高团队开发与问题定位效率。">
                 <template #icon><n-icon><img :src="Huawei" style="height: 16px; width: 16px;"></n-icon></template>
                 <template #footer>
                     2021.09 - 2023.12
