@@ -1,14 +1,20 @@
 <script setup lang="ts">
 import { NCard } from 'naive-ui'
+
+defineProps<{
+    title: string
+    date: string
+    description: string
+}>()
 </script>
 
 <template>
     <div>
-        <NCard title="小破站的第一篇文章" hoverable class="article-card" header-style="color: white">
+        <NCard :title="title" hoverable class="article-card" header-style="color: white">
             <template #header-extra>
-            2024-08-28
+            {{ date }}
             </template>
-            纪念一下~
+            {{ description }}
         </NCard>
     </div>
 </template>
