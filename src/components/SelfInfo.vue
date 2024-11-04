@@ -32,6 +32,11 @@ defineProps<{
                             <img src="../assets/yuque.svg" style="width: 100%; height: 100%;">
                         </i>
                     </a>
+                    <a style="margin: 0; margin-left: 8px; color: #f7f7fa; background-color: transparent; font-size: 1.4em; display: flex;" href="https://leetcode.cn/u/U72xhfFR3l/" target="_blank">
+                        <i style="background: 0 0; color: #f7f7fa; transition: all .3s ease 0s; padding: 8px; border-radius: 32px; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;font-size: 22px; line-height: 1; font-style: normal; -webkit-font-smoothing: antialiased;">
+                            <img src="../assets/leetcode.ico" style="width: 100%; height: 100%;">
+                        </i>
+                    </a>
                 </div>
                 <!-- personality -->
                 <div class="personality" style="z-index: 5;">
