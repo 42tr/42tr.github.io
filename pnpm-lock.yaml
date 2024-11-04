@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      echarts:
+        specifier: ^5.5.1
+        version: 5.5.1
       highlight.js:
         specifier: ^11.10.0
         version: 11.10.0
@@ -419,6 +422,9 @@ packages:
   de-indent@1.0.2:
     resolution: {integrity: sha512-e/1zu3xH5MQryN2zdVaF0OrdNLUbvWxzMbi+iNA6Bky7l1RoP8a2fIbRocyHclXt/arDrrR6lL3TqFD9pMQTsg==, tarball: https://registry.npmmirror.com/de-indent/-/de-indent-1.0.2.tgz}
 
+  echarts@5.5.1:
+    resolution: {integrity: sha512-Fce8upazaAXUVUVsjgV6mBnGuqgO+JNDlcgF79Dksy4+wgGpQB2lmYoO4TSweFg/mZITdpGHomw/cNBJZj1icA==, tarball: https://registry.npmmirror.com/echarts/-/echarts-5.5.1.tgz}
+
   entities@4.5.0:
     resolution: {integrity: sha512-V0hjH4dGPh9Ao5p0MoRY6BVqtwCjhz6vI5LT8AJ55H+4g9/4vbHx1I54fS0XuclLhDHArPQCiMjDxjaL8fPxhw==, tarball: https://registry.npmmirror.com/entities/-/entities-4.5.0.tgz}
     engines: {node: '>=0.12'}
@@ -510,6 +516,9 @@ packages:
   treemate@0.3.11:
     resolution: {integrity: sha512-M8RGFoKtZ8dF+iwJfAJTOH/SM4KluKOKRJpjCMhI8bG3qB74zrFoArKZ62ll0Fr3mqkMJiQOmWYkdYgDeITYQg==, tarball: https://registry.npmmirror.com/treemate/-/treemate-0.3.11.tgz}
 
+  tslib@2.3.0:
+    resolution: {integrity: sha512-N82ooyxVNm6h1riLCoyS9e3fuJ3AMG2zIZs2Gd1ATcSFjSA23Q0fzjjZeh0jbJvWVDZ0cJT8yaNNaaXHzueNjg==, tarball: https://registry.npmmirror.com/tslib/-/tslib-2.3.0.tgz}
+
   typescript@5.5.4:
     resolution: {integrity: sha512-Mtq29sKDAEYP7aljRgtPOpTvOfbwRWlS6dPRzwjdE+C0R4brX/GUyhHSecbHMFLNBLcJIPt9nl9yG5TZ1weH+Q==, tarball: https://registry.npmmirror.com/typescript/-/typescript-5.5.4.tgz}
     engines: {node: '>=14.17'}
@@ -580,6 +589,9 @@ packages:
     resolution: {integrity: sha512-Wnj/N8WbPRSxSt+9ji1jtDHPzda5h2OH/0sFBhvdxDRuyCZbjGg3/cKMaKqEoe+dErTexG2R+i6Q8S/Toq1MYg==, tarball: https://registry.npmmirror.com/vueuc/-/vueuc-0.4.58.tgz}
     peerDependencies:
       vue: ^3.0.11
+
+  zrender@5.6.0:
+    resolution: {integrity: sha512-uzgraf4njmmHAbEUxMJ8Oxg+P3fT04O+9p7gY+wJRVxo8Ge+KmYv0WJev945EH4wFuc4OY2NLXz46FZrWS9xJg==, tarball: https://registry.npmmirror.com/zrender/-/zrender-5.6.0.tgz}
 
 snapshots:
 
@@ -868,6 +880,11 @@ snapshots:
 
   de-indent@1.0.2: {}
 
+  echarts@5.5.1:
+    dependencies:
+      tslib: 2.3.0
+      zrender: 5.6.0
+
   entities@4.5.0: {}
 
   esbuild@0.21.5:
@@ -990,6 +1007,8 @@ snapshots:
 
   treemate@0.3.11: {}
 
+  tslib@2.3.0: {}
+
   typescript@5.5.4: {}
 
   undici-types@6.19.8: {}
@@ -1042,3 +1061,7 @@ snapshots:
       vdirs: 0.1.8(vue@3.4.38(typescript@5.5.4))
       vooks: 0.2.12(vue@3.4.38(typescript@5.5.4))
       vue: 3.4.38(typescript@5.5.4)
+
+  zrender@5.6.0:
+    dependencies:
+      tslib: 2.3.0

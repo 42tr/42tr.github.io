@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import SelfInfo from './components/SelfInfo.vue'
 import ArticleCard from './components/ArticleCard.vue'
+import Sport from './components/Sport.vue'
 
 import { darkTheme, NConfigProvider, NInfiniteScroll, NDrawer, NDrawerContent } from 'naive-ui'
 import type { GlobalTheme } from 'naive-ui'
@@ -44,6 +45,7 @@ window.onresize = () => {
       <span id="busuanzi_container_site_uv" style="color: white">  
         本站访客数<span id="busuanzi_value_site_uv"></span>人次
       </span>
+      <Sport />
     </div>
   </n-config-provider>
 
