@@ -28,7 +28,7 @@ const option = {
   xAxis: {
     type: 'category',
     boundaryGap: false,
-    data: ['11.01', '11.02', '11.03', '11.04'],
+    data: ['11.01', '11.02', '11.03', '11.04', '11.05'],
     axisLabel: {
         show: true,
         textStyle: {
@@ -51,17 +51,17 @@ const option = {
     {
       name: 'Calories',
       type: 'line',
-      data: [408, 720, 269, 695]
+      data: [408, 720, 269, 695, 665]
     },
     {
       name: 'Weight',
       type: 'line',
-      data: [76, 76, 76, 76]
+      data: [76, 76, 76, 76, 75]
     },
     {
       name: 'Exercise',
       type: 'line',
-      data: [34, 81, 8, 71]
+      data: [34, 81, 8, 71, 66]
     }
   ]
 };
