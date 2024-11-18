@@ -1,10 +1,6 @@
-@font-face {
-  font-family: 'bear';
-  src: url(../../assets/AaGuXiLaZhangGuanKeAiDeShen-2.ttf);
-}
-
 * {
-  font-family: 'bear';
+  /* font-family: sans-serif; */
+  font-family: monospace;
 }
 
 body {
