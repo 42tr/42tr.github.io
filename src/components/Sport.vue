@@ -1,7 +1,31 @@
 <script setup lang="ts">
 import * as echarts from 'echarts'
 import { ref, onMounted } from 'vue';
-
+const data = [
+    {date: '11.01', calories: 408, weight: 76.0, exercise: 34},
+    {date: '11.02', calories: 720, weight: 76.0, exercise: 81},
+    {date: '11.03', calories: 269, weight: 76.0, exercise: 8},
+    {date: '11.04', calories: 695, weight: 76.0, exercise: 71},
+    {date: '11.05', calories: 665, weight: 75.1, exercise: 66},
+    {date: '11.06', calories: 819, weight: 75.5, exercise: 94},
+    {date: '11.07', calories: 748, weight: 74.8, exercise: 102},
+    {date: '11.08', calories: 468, weight: 75.4, exercise: 36},
+    {date: '11.09', calories: 656, weight: 74.0, exercise: 58},
+    {date: '11.10', calories: 348, weight: 74.1, exercise: 10},
+    {date: '11.11', calories: 648, weight: 75.2, exercise: 62},
+    {date: '11.12', calories: 446, weight: 75.2, exercise: 37},
+    {date: '11.13', calories: 614, weight: 75.5, exercise: 59},
+    {date: '11.14', calories: 378, weight: 75.3, exercise: 32},
+    {date: '11.15', calories: 628, weight: 75.0, exercise: 82},
+    {date: '11.16', calories: 292, weight: 75.0, exercise: 17},
+    {date: '11.17', calories: 546, weight: 75.0, exercise: 82},
+    {date: '11.18', calories: 404, weight: 75.1, exercise: 31},
+    {date: '11.19', calories: 377, weight: 75.6, exercise: 28},
+]
+const date = data.map(item => item.date)
+const calories = data.map(item => item.calories)
+const weight = data.map(item => item.weight)
+const exercise = data.map(item => item.exercise)
 let chart = ref()
 
 const option = {
@@ -28,7 +52,7 @@ const option = {
   xAxis: {
     type: 'category',
     boundaryGap: false,
-    data: ['11.01', '11.02', '11.03', '11.04', '11.05', '11.06', '11.07', '11.08', '11.09', '11.10', '11.11', '11.12', '11.13', '11.14', '11.15', '11.16', '11.17', '11.18'],
+    data: date,
     axisLabel: {
         show: true,
         textStyle: {
@@ -51,17 +75,17 @@ const option = {
     {
       name: 'Calories',
       type: 'line',
-      data: [408, 720, 269, 695, 665, 819, 748, 468, 656, 348, 648, 446, 614, 378, 628, 292, 546, 404]
+      data: calories
     },
     {
       name: 'Weight',
       type: 'line',
-      data: [76.0, 76.0, 76.0, 76.0, 75.1, 75.5, 74.8, 75.4, 74.0, 74.1, 75.2, 75.2, 75.5, 75.3, 75.0, 75.0, 75.0, 75.1]
+      data: weight
     },
     {
       name: 'Exercise',
       type: 'line',
-      data: [34, 81, 8, 71, 66, 94, 102, 36, 58, 10, 62, 37, 59, 32, 82, 17, 82, 31]
+      data: exercise
     }
   ]
 };
