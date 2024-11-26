@@ -1,0 +1,1 @@
+import{e as i}from"./main-light-DrXE_YRv.js";function n(o){const{textColor1:t,dividerColor:e,fontWeightStrong:r}=o;return{textColor:t,color:e,fontWeight:r}}const s={name:"Divider",common:i,self:n};export{s as d,n as s};
