@@ -33,7 +33,7 @@ const open = (url: any) => {
                 <template #icon>
                     <n-icon><Phone /></n-icon>
                 </template>
-                +86-18936861530
+                18936861530
             </n-button>
             <n-button size="small" :bordered="false">
                 <template #icon>
@@ -64,10 +64,10 @@ const open = (url: any) => {
         <!-- body start -->
         <h2>项目经历</h2>
         <n-timeline>
-            <n-timeline-item type="success" title="AI 软件开发工程师 | 华为" content="使用 RAG 帮助团队提高问题定位效率，从 es、mysql 以及其他系统中进行搜索后针对问题进行重排序并总结。大幅优化 es 搜索效果，问题搜索准确率由50%提升至90%，其中多路召回重排序方法在公司内部申请专利成功，获“数据通信研发部长奖-维护效率及能力提升奖”。">
+            <n-timeline-item type="success" title="AI 软件开发工程师 | 华为" content="Web 全栈开发，使用 RAG 帮助团队提高问题定位效率，从 es、mysql 以及其他系统中进行搜索后针对问题进行重排序并总结。大幅优化 es 搜索效果，问题搜索准确率由 50% 提升至 90%，其中多路召回重排序方法在公司内部申请专利成功，获“数据通信研发部长奖-维护效率及能力提升奖”。">
                 <template #icon><n-icon><img :src="Huawei" style="height: 16px; width: 16px;"></n-icon></template>
                 <template #footer>
-                    2024.01 - Now
+                    2024.01 - 2024.11
                     <n-space>
                         <n-tag :bordered="false" round size="small">LLM</n-tag>
                         <n-tag :bordered="false" round size="small">Java</n-tag>
@@ -87,14 +87,14 @@ const open = (url: any) => {
                     2021.09 - 2023.12
                     <n-space>
                         <n-tag :bordered="false" round size="small">C</n-tag>
+                        <n-tag :bordered="false" round size="small">Go</n-tag>
+                        <n-tag :bordered="false" round size="small">Rust</n-tag>
                         <n-tag :bordered="false" round size="small">Linux</n-tag>
                         <n-tag :bordered="false" round size="small">Git</n-tag>
                         <n-tag :bordered="false" round size="small">Shell</n-tag>
                         <n-tag :bordered="false" round size="small">CI/CD</n-tag>
-                        <n-tag :bordered="false" round size="small">Go</n-tag>
                         <n-tag :bordered="false" round size="small">Python</n-tag>
                         <n-tag :bordered="false" round size="small">Redis</n-tag>
-                        <n-tag :bordered="false" round size="small">Rust</n-tag>
                         <n-tag :bordered="false" round size="small">Jenkins</n-tag>
                     </n-space>
                 </template>
@@ -142,7 +142,7 @@ const open = (url: any) => {
         </n-timeline>
         <h2>教育</h2>
         <n-timeline>
-            <n-timeline-item title="软件工程-本科 | 电子科技大学" content="学习的主要课程：软件工程、计算机组成原理、计算机网络、嵌入式系统、数据结构与算法、机器视觉算法与应用、综合课程设计（人脸识别）。获得了英语四级证书和人民三等奖学金。">
+            <n-timeline-item title="软件工程-本科 | 电子科技大学" content="学习的主要课程：软件工程、计算机组成原理、计算机网络、嵌入式系统、数据结构与算法、机器视觉算法与应用、综合课程设计（Android & 人脸识别）等。获得英语四级证书和人民三等奖学金。">
                 <template #icon>
                     <n-icon>
                         <img :src="UESTC" style="height: 16px; width: 16px;">
@@ -155,7 +155,7 @@ const open = (url: any) => {
         </n-timeline>
         <h2>个人评价</h2>
         <div style="text-indent:28px">
-            Web 全栈工程师，熟悉 linux 操作系统；学习、适应能力强，能迅速上手新项目、新语言；算法能力较强，能快速解决实际问题；持续集成部署能力较强，可协助提高团队开发效率；平时喜欢写一些工具提高工作效率。
+            全栈工程师，熟悉 linux、Windows、Mac 操作系统，熟练 Java、Go、JavaScript 开发应用，熟悉 C、Rust 系统开发，熟练使用 Github Actions/Jenkins 等工具实现 CI/CD。算法能力较强，平时喜欢研究技术，业余时间会做一些基于树莓派的应用开发。
         </div>
         <!-- body end -->
         <!-- intj -->
