@@ -31,6 +31,7 @@ window.onresize = () => {
   <n-config-provider :theme="theme">
     <div class="left-side">
       <n-infinite-scroll style="height: 100%" :distance="20">
+        <ArticleCard class="article-card" @click="openDrawer('/pages/wechat-bot/')" title="微信机器人" date="2024-12-10" description="以前的微信机器人不好用了，尝试找到更好的微信机器人方案，感觉还是用邮件方便些" />
         <ArticleCard class="article-card" @click="openDrawer('/pages/x/')" title="邮件助手" date="2024-12-4" description="Rust 编写的邮件助手" />
         <ArticleCard class="article-card" @click="openDrawer('/pages/resume-design/')" title="制作简历" date="2024-10-31" description="用各种工具、语言太麻烦了，不如直接用最熟悉的 HTML 写~" />
         <ArticleCard class="article-card" @click="openDrawer('/article/first/')" title="小破站的第一篇文章" date="2024-08-28" description="纪念一下~" />
