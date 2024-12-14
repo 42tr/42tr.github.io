@@ -41,9 +41,9 @@ defineProps<{
                 <!-- personality -->
                 <div class="personality" style="z-index: 5;">
                     <img src="../assets/intj-a.png" class="personality-img">
-                    <div class="personality-text" style="bottom: 40px">
+                    <!-- <div class="personality-text" style="bottom: 40px">
                         <a @click="openDrawer('/resume/en/')">resume</a> / <a @click="openDrawer('/resume/zh/')">简历</a>
-                    </div>
+                    </div> -->
                     <div class="personality-text">建筑师 INTJ-A</div>
                 </div>
             </div>
