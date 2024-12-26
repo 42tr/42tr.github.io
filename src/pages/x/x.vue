@@ -132,7 +132,7 @@ WORKDIR /tmp/
 RUN chmod +x x
 "  />
     </n-config-provider>
-
+    旧版本的 ubuntu 也会有 openssl 问题，由于 docker 现在使用不方便，服务器改用 ubuntu 新版本。
 
 
 </template>
