@@ -57,6 +57,10 @@ const data = [
     {date: '12.23', calories: 366, weight: 75.4, exercise: 32},
     {date: '12.24', calories: 701, weight: 75.1, exercise: 78},
     {date: '12.25', calories: 367, weight: 75.3, exercise: 33},
+    {date: '12.26', calories: 780, weight: 75.1, exercise: 73},
+    {date: '12.27', calories: 302, weight: 75.1, exercise: 9},
+    {date: '12.28', calories: 500, weight: 75.1, exercise: 20},
+    {date: '12.29', calories: 366, weight: 75.2, exercise: 13},
 ]
 const date = data.map(item => item.date)
 const calories = data.map(item => item.calories)
