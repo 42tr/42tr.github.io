@@ -132,7 +132,7 @@ WORKDIR /tmp/
 RUN chmod +x x
 "  />
     </n-config-provider>
-    旧版本的 ubuntu 也会有 openssl 问题，由于 docker 现在使用不方便，服务器改用 ubuntu 新版本。
+    旧版本的 ubuntu 也会有 openssl 问题，由于 docker 现在使用不方便，服务器改用 ubuntu 新版本。对依赖 openssl 的库，使用 rustls-tls 特性，可以去除对 openssl 的依赖。
 
 
 </template>
