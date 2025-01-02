@@ -1,21 +1,12 @@
+@font-face {
+  font-family: 'bear';
+  src: url(../../assets/AaGuXiLaZhangGuanKeAiDeShen-2.ttf);
+}
+
 * {
-  /* font-family: sans-serif; */
-  font-family: monospace;
+  font-family: 'bear';
 }
 
 body {
   padding: 20px;
-}
-
-p {
-  margin-block-start: 0.3em;
-  margin-block-end: 0.3em;
-}
-h1 {
-  margin-block-start: 0.5em;
-  margin-block-end: 0.5em;
-}
-h2 {
-  margin-block-start: 0.3em;
-  margin-block-end: 0.3em;
 }
