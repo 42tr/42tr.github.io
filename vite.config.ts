@@ -17,6 +17,7 @@ export default defineConfig({
           resumeDesign: resolve(__dirname, 'pages/resume-design/index.html'),
           x: resolve(__dirname, 'pages/x/index.html'),
           wechatBot: resolve(__dirname, 'pages/wechat-bot/index.html'),
+          rustRemoveOpenssl: resolve(__dirname, 'pages/rustRemoveOpenssl/index.html'),
        },
        output: {
         chunkFileNames: `assets/main-[name]-[hash].js`, // 不能下划线开头，增加一个 main 前缀
