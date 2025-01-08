@@ -1,0 +1,1 @@
+import{e as f,r as o,w as s}from"./main-runtime-dom.esm-bundler-_wCP2xP5.js";function r(e){const t=f(e),u=o(t.value);return s(t,a=>{u.value=a}),typeof e=="function"?u:{__v_isRef:!0,get value(){return u.value},set value(a){e.set(a)}}}export{r as u};
