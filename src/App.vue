@@ -31,6 +31,7 @@ window.onresize = () => {
   <n-config-provider :theme="theme">
     <div class="left-side">
       <n-infinite-scroll style="height: 100%" :distance="20">
+        <ArticleCard class="article-card" @click="openDrawer('/pages/geo-search/')" title="地理位置搜索" date="2025-01-09" description="搜索一个位置附近的地址位置点" />
         <ArticleCard class="article-card" @click="openDrawer('/pages/rust-remove-openssl/')" title="Rust 去除对 openssl 的依赖" date="2025-01-02" description="Rust 编译文件依赖 openssl 会导致执行报错" />
         <ArticleCard class="article-card" @click="openDrawer('/pages/wechat-bot/')" title="微信机器人" date="2024-12-10" description="以前的微信机器人不好用了，尝试找到更好的微信机器人方案，感觉还是用邮件方便些" />
         <ArticleCard class="article-card" @click="openDrawer('/pages/x/')" title="邮件助手" date="2024-12-4" description="Rust 编写的邮件助手" />

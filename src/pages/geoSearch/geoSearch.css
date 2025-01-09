@@ -1,0 +1,45 @@
+* {
+    font-family: -apple-system, BlinkMacSystemFont, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+body {
+    padding: 20px;
+}
+
+p {
+    text-indent: 2em;
+}
+
+/* 默认样式 */
+a {
+    color: white;
+    background-color: #007BFF; /* 蓝色背景 */
+    text-decoration: none; /* 去掉下划线 */
+    padding: 10px 20px; /* 增加内边距 */
+    border-radius: 5px; /* 圆角 */
+    font-weight: bold; /* 加粗文字 */
+    font-size: 1.2em; /* 增大字体 */
+    transition: all 0.3s ease; /* 增加交互过渡效果 */
+}
+
+/* 悬停样式 */
+a:hover {
+    background-color: #0056b3; /* 更深的蓝色 */
+    color: #fff; /* 保持白色字体 */
+    transform: scale(1.1); /* 微放大 */
+    text-decoration: underline; /* 悬停时显示下划线 */
+}
+
+/* 已访问链接 */
+a:visited {
+    background-color: #6c757d; /* 灰色背景 */
+}
+
+/* 活动链接 */
+a:active {
+    background-color: #ff4500; /* 橙色背景 */
+}
+
+img {
+    max-width: 30%;
+}
