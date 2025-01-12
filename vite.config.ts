@@ -18,8 +18,8 @@ export default defineConfig({
           x: resolve(__dirname, 'pages/x/index.html'),
           wechatBot: resolve(__dirname, 'pages/wechat-bot/index.html'),
           rustRemoveOpenssl: resolve(__dirname, 'pages/rust-remove-openssl/index.html'),
-          knowledgeSqlDatabase: resolve(__dirname, 'pages/knowledge-sql-database/index.html'),
           geoSearch: resolve(__dirname, 'pages/geo-search/index.html'),
+          knowledgeSqlDatabase: resolve(__dirname, 'pages/knowledge-sql-database/index.html'),
        },
        output: {
         chunkFileNames: `assets/main-[name]-[hash].js`, // 不能下划线开头，增加一个 main 前缀

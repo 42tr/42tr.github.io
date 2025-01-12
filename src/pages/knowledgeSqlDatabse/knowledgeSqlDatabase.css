@@ -43,3 +43,7 @@ a:active {
 img {
     max-width: 30%;
 }
+
+summary {
+    font-weight: bold;
+}
